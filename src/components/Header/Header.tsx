@@ -1,16 +1,36 @@
-import { useContext } from "react";
-import { signIn, signOutUser } from "../../firebase/firebase";
+import { NavLink } from "react-router-dom";
+import User from "./User";
 import "./styles/Header.css";
-import { UserContext } from "../App";
+import logo from "./images/home-sound-out.svg";
+import Search from "./Search";
+import { useContext } from "react";
+import { AppContext } from "../App";
+import { signIn } from "../../firebase/firebase";
 
 function Header() {
-  const user = useContext(UserContext);
-  console.log(user);
+  const context = useContext<any>(AppContext);
+
+  function librarySignInHandler() {
+    if (!context.user) {
+      signIn();
+    }
+  }
 
   return (
     <div className="Header">
-      <button onClick={signIn}>Sign-in</button>
-      <button onClick={signOutUser}>Sign-out</button>
+      <NavLink to="/">
+        <img className="logo" src={logo} alt="sounds of house" />
+      </NavLink>
+      <nav className="nav-list">
+        <NavLink className="link" to="/">
+          Home
+        </NavLink>
+        <NavLink className="link" to="library" onClick={librarySignInHandler}>
+          Library
+        </NavLink>
+        <Search />
+      </nav>
+      <User />
     </div>
   );
 }

@@ -1,0 +1,32 @@
+.Header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: black;
+}
+
+.logo {
+  display: block;
+  height: 40px;
+  filter: invert(100%);
+}
+
+.nav-list {
+  display: flex;
+  gap: 50px;
+}
+
+.link {
+  color: var(--color-text-passive);
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+
+.link.active,
+.link:hover {
+  color: var(--color-text-active);
+}

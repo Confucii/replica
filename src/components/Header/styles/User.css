@@ -1,0 +1,27 @@
+.User {
+  width: 120px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sign-in-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: var(--color-text-active);
+  border-radius: 16px;
+  height: 32px;
+  padding: 0 16px;
+}
+
+.user-data {
+  position: relative;
+}
+
+.user-img {
+  cursor: pointer;
+  height: 35px;
+  border-radius: 50%;
+}
