@@ -1,0 +1,44 @@
+.CarouselItemCard {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.poster-img {
+  cursor: pointer;
+  border-radius: 5px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: filter 0.5s ease-in-out;
+}
+
+.play-btn {
+  width: 25%;
+  display: none;
+}
+
+.poster-img:hover {
+  filter: brightness(80%);
+}
+
+.poster-img:hover .play-btn {
+  display: block;
+  filter: invert(100%);
+}
+
+.item-card-title {
+  font-weight: bold;
+}
+
+.item-card-source {
+  color: var(--color-text-passive);
+}
+
+.item-card-source:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

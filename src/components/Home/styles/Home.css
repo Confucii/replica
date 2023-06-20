@@ -1,4 +1,9 @@
 .Home {
   background-color: black;
   flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 70px;
+  padding: 2% 0;
 }

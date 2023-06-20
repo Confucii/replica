@@ -1,0 +1,48 @@
+.Carousel {
+  color: white;
+  width: 80%;
+}
+
+.carousel-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.carousel-controls {
+  display: flex;
+  gap: 15px;
+}
+
+.carousel-chevron {
+  cursor: pointer;
+  height: 35px;
+  filter: invert(54%) sepia(0%) saturate(12%) hue-rotate(167deg) brightness(92%)
+    contrast(87%);
+}
+
+.carousel-chevron:hover {
+  filter: invert(100%);
+}
+
+.carousel-chevron.disabled {
+  filter: invert(54%) sepia(0%) saturate(12%) hue-rotate(167deg) brightness(32%)
+    contrast(87%);
+  cursor: default;
+}
+
+.carousel-items {
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+.carousel-images {
+  display: flex;
+  gap: 20px;
+  transition: all 0.5s ease-in-out;
+}

@@ -52,6 +52,7 @@
 .sign-out-text {
   font-size: 1.15rem;
   width: 80%;
+  text-align: center;
 }
 
 .sign-out:hover {
