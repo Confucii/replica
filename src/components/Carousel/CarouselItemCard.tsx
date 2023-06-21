@@ -1,7 +1,7 @@
 import { capitalize } from "../../utility";
 import "./styles/CarouselItemCard.css";
 import test from "../../laser-gun.png";
-import play from "./images/play.svg";
+import play from "../recurring/images/play.svg";
 import { useState, useLayoutEffect, useEffect } from "react";
 
 function CarouselItemCard({ song }: { song: any }) {
@@ -34,6 +34,7 @@ function CarouselItemCard({ song }: { song: any }) {
     <div className="CarouselItemCard">
       <div
         className="poster-img"
+        // change to imageURL
         style={{
           backgroundImage: `url("${test}")`,
           height: `${imageSize}px`,
@@ -43,7 +44,11 @@ function CarouselItemCard({ song }: { song: any }) {
         <img className="play-btn" src={play} alt="play" />
       </div>
       <div className="item-card-title">{capitalize(song.name)}</div>
-      <div data-album={song.source} className="item-card-source">
+      <div
+        data-artist={song.artist}
+        data-album={song.source}
+        className="item-card-source"
+      >
         {capitalize(song.source)}
       </div>
     </div>

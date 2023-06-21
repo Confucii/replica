@@ -8,6 +8,11 @@
   font-weight: bold;
 }
 
+.carousel-name:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .carousel-header {
   display: flex;
   justify-content: space-between;

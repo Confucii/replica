@@ -25,7 +25,9 @@ function Carousel({ data }: { data: any }) {
   return (
     <div className="Carousel">
       <div className="carousel-header">
-        <div className="carousel-name">{capitalize(data.artist)}</div>
+        <div className="carousel-name" data-artist={data.artist}>
+          {capitalize(data.artist)}
+        </div>
         <div className="carousel-controls">
           <img
             className={`carousel-chevron ${index === 0 && "disabled"}`}

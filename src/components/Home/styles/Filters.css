@@ -1,0 +1,23 @@
+.Filters {
+  color: var(--color-text-active);
+  display: flex;
+  gap: 10px;
+  align-self: start;
+  padding-left: 10%;
+}
+
+.filter {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.filter.chosen {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.filter:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.3);
+}

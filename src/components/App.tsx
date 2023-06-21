@@ -45,6 +45,7 @@ function App() {
         setUser(false);
       }
     });
+    //THIS INSTEAD OF data.tsx FILE
     // getArtistsData();
   }, []);
 

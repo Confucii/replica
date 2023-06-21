@@ -1,0 +1,54 @@
+.MixTrack {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  column-gap: 15px;
+  row-gap: 5px;
+}
+
+.mix-track-img {
+  grid-row: 1/3;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: filter 0.5s ease-in-out;
+}
+
+.mix-track-img .play-btn {
+  width: 75%;
+  display: none;
+}
+
+.mix-track-img:hover {
+  filter: brightness(80%);
+}
+
+.mix-track-img:hover .play-btn {
+  display: block;
+  filter: invert(100%);
+}
+
+.mix-track-name {
+  cursor: pointer;
+  color: var(--color-text-active);
+  align-self: end;
+  font-weight: bold;
+}
+
+.mix-track-sources {
+  display: flex;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.mix-track-artist:hover,
+.mix-track-album:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

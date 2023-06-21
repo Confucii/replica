@@ -2,6 +2,10 @@ export function capitalize(string: string) {
   return string.slice(0, 1).toUpperCase() + string.slice(1);
 }
 
+export function downcase(string: string) {
+  return string.slice(0, 1).toLowerCase() + string.slice(1);
+}
+
 export function shuffleArray(arr: any[]) {
   const shuffledArray = [...arr];
 
