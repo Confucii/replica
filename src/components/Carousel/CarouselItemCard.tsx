@@ -3,9 +3,20 @@ import "./styles/CarouselItemCard.css";
 import test from "../../laser-gun.png";
 import play from "../recurring/images/play.svg";
 import { useState, useLayoutEffect, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function CarouselItemCard({ song }: { song: any }) {
   const [imageSize, setImageSize] = useState(0);
+
+  const nav = useNavigate();
+
+  function handleAlbumRedirect() {
+    if (song.source === "single") {
+      nav("/artist", { state: song.artist });
+    } else {
+      nav("/album", { state: { album: song.source, artist: song.artist } });
+    }
+  }
 
   useLayoutEffect(() => {
     setImageSize(
@@ -44,11 +55,7 @@ function CarouselItemCard({ song }: { song: any }) {
         <img className="play-btn" src={play} alt="play" />
       </div>
       <div className="item-card-title">{capitalize(song.name)}</div>
-      <div
-        data-artist={song.artist}
-        data-album={song.source}
-        className="item-card-source"
-      >
+      <div onClick={handleAlbumRedirect} className="item-card-source">
         {capitalize(song.source)}
       </div>
     </div>

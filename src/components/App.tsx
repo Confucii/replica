@@ -7,6 +7,8 @@ import { getData, initFirebaseAuth } from "../firebase/firebase";
 import { createContext, useEffect, useState } from "react";
 import SearchPage from "./Search/SearchPage";
 import { data } from "../data";
+import Album from "./Album/Album";
+import Artist from "./Artist/Artist";
 
 export const AppContext = createContext(false);
 
@@ -46,7 +48,7 @@ function App() {
       }
     });
     //THIS INSTEAD OF data.tsx FILE
-    // getArtistsData();
+    //getArtistsData();
   }, []);
 
   function handleStatusChange() {
@@ -66,6 +68,8 @@ function App() {
             <Route index element={<Home />} />
             <Route path="library" element={<Library />} />
             <Route path="search" element={<SearchPage />} />
+            <Route path="album" element={<Album />} />
+            <Route path="artist" element={<Artist />} />
           </Route>
         </Routes>
       </AppContext.Provider>

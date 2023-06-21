@@ -35,7 +35,7 @@
 }
 
 .item-card-source {
-  color: var(--color-text-passive);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .item-card-source:hover {
