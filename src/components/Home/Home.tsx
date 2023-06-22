@@ -24,7 +24,14 @@ function Home({ homeSongs, mixSongs }: { homeSongs: any; mixSongs: any }) {
       <Filters filter={filter} setFilter={setFilter} />
       {!filter && <Mix mix={mixSongs} />}
       {filteredSongs.map((data: any) => {
-        return <Carousel key={data.artist} data={data} />;
+        return (
+          <Carousel
+            name={data.artist}
+            type={"home"}
+            key={data.artist}
+            data={data}
+          />
+        );
       })}
     </div>
   );

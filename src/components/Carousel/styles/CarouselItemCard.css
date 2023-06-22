@@ -34,6 +34,11 @@
   font-weight: bold;
 }
 
+.item-card-title:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .item-card-source {
   color: rgba(255, 255, 255, 0.7);
 }

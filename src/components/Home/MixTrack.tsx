@@ -23,9 +23,9 @@ function MixTrack({ track }: { track: any }) {
     <div className="MixTrack">
       <div
         className="mix-track-img"
-        // change to imageURL
         style={{
-          backgroundImage: `url("${test}")`,
+          //backgroundImage: `url("${test}")`,
+          backgroundImage: `url("${track.imageURL}")`,
         }}
       >
         <img className="play-btn" src={play} alt="play" />

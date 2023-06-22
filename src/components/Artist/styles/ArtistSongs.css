@@ -1,0 +1,37 @@
+.ArtistSongs {
+  width: 80%;
+}
+
+.artist-songs {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 10px;
+}
+
+.artist-songs-name {
+  width: fit-content;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.artist-songs-more {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  height: 32px;
+  padding: 0 20px;
+  align-self: baseline;
+}
+
+.artist-songs-more:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

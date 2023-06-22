@@ -10,6 +10,8 @@ function Album() {
   const [albumData, setAlbumData] = useState<any>(false);
   const location = useLocation();
 
+  console.log(location.state);
+
   const nav = useNavigate();
 
   function handleArtistRedirect() {
@@ -39,7 +41,8 @@ function Album() {
           <div
             className="album-poster"
             style={{
-              backgroundImage: `url("${test}")`,
+              backgroundImage: `url("${albumData.imageURL}")`,
+              //backgroundImage: `url("${test}")`,
             }}
           ></div>
           <div className="album-description">

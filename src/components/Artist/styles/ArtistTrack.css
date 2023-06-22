@@ -1,0 +1,62 @@
+.ArtistTrack {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 10px 0;
+}
+
+.ArtistTrack + .ArtistTrack {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.artist-track-left {
+  width: 35%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.artist-track-play {
+  display: none;
+  height: 28px;
+}
+
+.ArtistTrack:hover .artist-track-play {
+  cursor: pointer;
+  display: block;
+  filter: invert(100%);
+}
+
+.artist-track-image {
+  width: 36px;
+  height: 36px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.artist-track-name {
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--color-text-active);
+}
+
+.artist-track-artist,
+.artist-track-album {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.artist-track-artist:hover,
+.artist-track-album:hover {
+  text-decoration: underline;
+}
+
+.artist-track-artist {
+  width: 33%;
+}
