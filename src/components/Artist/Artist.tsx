@@ -55,8 +55,8 @@ function Artist() {
         <div
           className="artist-header"
           style={{
-            backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 25%, rgba(0,0,0,1)), url('${artistData.imageURL}')`,
-            //backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 25%, rgba(0,0,0,1)), url('${test}')`,
+            //backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 25%, rgba(0,0,0,1)), url('${artistData.imageURL}')`,
+            backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 25%, rgba(0,0,0,1)), url('${test}')`,
           }}
         >
           <div className="artist-page-name">{capitalize(artistData.name)}</div>

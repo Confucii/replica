@@ -41,8 +41,8 @@ function Album() {
           <div
             className="album-poster"
             style={{
-              backgroundImage: `url("${albumData.imageURL}")`,
-              //backgroundImage: `url("${test}")`,
+              //backgroundImage: `url("${albumData.imageURL}")`,
+              backgroundImage: `url("${test}")`,
             }}
           ></div>
           <div className="album-description">

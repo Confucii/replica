@@ -65,8 +65,8 @@ function CarouselItemCard({
         onClick={handleRedirectItem}
         // change to imageURL
         style={{
-          //backgroundImage: `url("${test}")`,
-          backgroundImage: `url("${data.imageURL}")`,
+          backgroundImage: `url("${test}")`,
+          //backgroundImage: `url("${data.imageURL}")`,
           height: `${imageSize}px`,
           width: `${imageSize}px`,
         }}

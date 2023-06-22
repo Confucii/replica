@@ -1,0 +1,20 @@
+.SongsList {
+  flex: 1;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 0 100px;
+}
+
+.songs-list-name {
+  width: 80%;
+  color: white;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.songs-list {
+  width: 80%;
+}

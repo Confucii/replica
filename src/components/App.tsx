@@ -10,6 +10,7 @@ import SearchPage from "./Search/SearchPage";
 import Album from "./Album/Album";
 import Artist from "./Artist/Artist";
 import { shuffleArray } from "../utility";
+import SongsList from "./Artist/SongsList";
 
 export const AppContext = createContext({});
 
@@ -111,7 +112,10 @@ function App() {
             <Route path="library" element={<Library />} />
             <Route path="search" element={<SearchPage />} />
             <Route path="album" element={<Album />} />
-            <Route path="artist" element={<Artist />} />
+            <Route path="artist">
+              <Route index element={<Artist />} />
+              <Route path="songs" element={<SongsList />} />
+            </Route>
           </Route>
         </Routes>
       </AppContext.Provider>
