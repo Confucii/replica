@@ -4,9 +4,16 @@ import left from "./images/chevron-left-circle-outline.svg";
 import right from "./images/chevron-right-circle-outline.svg";
 import "./styles/Carousel.css";
 import CarouselItemCard from "./CarouselItemCard";
+import { useNavigate } from "react-router-dom";
 
 function Carousel({ data }: { data: any }) {
   const [index, setIndex] = useState(0);
+  const nav = useNavigate();
+
+  function handleArtistRedirect() {
+    nav("/artist", { state: data.artist });
+  }
+
   const offset =
     (document.querySelector(".carousel-items")?.clientWidth || 1200) + 20;
 
@@ -25,7 +32,7 @@ function Carousel({ data }: { data: any }) {
   return (
     <div className="Carousel">
       <div className="carousel-header">
-        <div className="carousel-name" data-artist={data.artist}>
+        <div className="carousel-name" onClick={handleArtistRedirect}>
           {capitalize(data.artist)}
         </div>
         <div className="carousel-controls">

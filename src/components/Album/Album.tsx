@@ -4,6 +4,7 @@ import test from "../../laser-gun.png";
 import { capitalize } from "../../utility";
 import { useEffect, useState } from "react";
 import { getArtistData } from "../../firebase/firebase";
+import AlbumTracks from "./AlbumTracks";
 
 function Album() {
   const [albumData, setAlbumData] = useState<any>(false);
@@ -18,7 +19,6 @@ function Album() {
   useEffect(() => {
     async function getAlbumData() {
       const artistData = await getArtistData(location.state.artist);
-      console.log(artistData);
 
       const chosenAlbumData = artistData.albums.filter((album: any) => {
         return album.name === location.state.album;
@@ -45,8 +45,11 @@ function Album() {
           <div className="album-description">
             <div className="album-title">{capitalize(albumData.name)}</div>
             <div className="album-artist-number">
-              <div className="album-artist" onClick={handleArtistRedirect}>
-                {"Album | " + capitalize(location.state.artist)}
+              <div>
+                <span>Album | </span>{" "}
+                <span className="album-artist" onClick={handleArtistRedirect}>
+                  {capitalize(location.state.artist)}
+                </span>
               </div>
               <div className="album-audio-number">
                 {"Length: " + albumData.songs.length + " sounds"}
@@ -59,7 +62,7 @@ function Album() {
           </div>
         </div>
       )}
-      <div className="album-tracks"></div>
+      {albumData && <AlbumTracks songs={albumData.songs} />}
     </div>
   );
 }

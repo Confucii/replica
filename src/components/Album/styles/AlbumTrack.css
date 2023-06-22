@@ -1,0 +1,51 @@
+.AlbumTrack {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  padding: 10px 0;
+}
+
+.AlbumTrack + .AlbumTrack {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.album-track-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.album-track-number {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+}
+
+.album-track-number,
+.album-track-duration {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.album-track-play {
+  display: none;
+  height: 28px;
+}
+
+.AlbumTrack:hover .album-track-play {
+  cursor: pointer;
+  display: block;
+  filter: invert(100%);
+}
+.AlbumTrack:hover .album-track-number {
+  display: none;
+}
+
+.album-track-name {
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--color-text-active);
+}
