@@ -6,7 +6,13 @@ import {
   signInWithRedirect,
   signOut,
 } from "firebase/auth";
-import { getFirestore, collection, getDocs } from "@firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  getDoc,
+  doc,
+} from "@firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAXiqr4IiGXVBuU_nRoXPYNZ6fZEdz6X6Q",
@@ -37,4 +43,9 @@ export async function getData() {
   const dataSnapshot = await getDocs(collection(firestore, "artists"));
   const data = dataSnapshot.docs.map((doc) => doc.data());
   return data;
+}
+
+export async function getArtistData(name: string) {
+  const dataSnapshot = await getDoc(doc(firestore, "artists", name));
+  return dataSnapshot.data() as any;
 }

@@ -2,13 +2,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./styles/Album.css";
 import test from "../../laser-gun.png";
 import { capitalize } from "../../utility";
-import { useEffect, useState, useContext } from "react";
-import { AppContext } from "../App";
-import { data } from "../../data";
+import { useEffect, useState } from "react";
+import { getArtistData } from "../../firebase/firebase";
 
 function Album() {
-  //Set context as data source
-  const context = useContext<any>(AppContext);
   const [albumData, setAlbumData] = useState<any>(false);
   const location = useLocation();
 
@@ -19,15 +16,19 @@ function Album() {
   }
 
   useEffect(() => {
-    const chosenAlbumData = data
-      .filter((artist) => {
-        return artist.name === location.state.artist;
-      })[0]
-      .albums.filter((album) => {
+    async function getAlbumData() {
+      const artistData = await getArtistData(location.state.artist);
+      console.log(artistData);
+
+      const chosenAlbumData = artistData.albums.filter((album: any) => {
         return album.name === location.state.album;
       });
 
-    setAlbumData(chosenAlbumData[0]);
+      setAlbumData(chosenAlbumData[0]);
+    }
+
+    getAlbumData();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
