@@ -23,9 +23,10 @@ function App() {
     searchStatus: false,
   });
   // change to empty array
+  const [artistsData, setArtistsData] = useState<any>([]);
+  const [albumsData, setAlbumsData] = useState<any>([]);
   const [homeSongs, setHomeSongs] = useState<any>([]);
-  const [mixSongs, setMixSongs] = useState<any>([]);
-
+  const [allSongs, setAllSongs] = useState<any>([]);
   const context: any = {
     user: user,
     dropdownHandler: { dropdown, setDropdown },
@@ -35,6 +36,8 @@ function App() {
   useEffect(() => {
     async function getFullData() {
       const fullData = await getData();
+      let artists: any[] = [];
+      let albums: any[] = [];
       let songs: any[] = [];
       fullData.forEach((artist: any) => {
         let singles = artist.singles.map((single: any) => {
@@ -47,6 +50,11 @@ function App() {
 
         let albumSongs: any[] = [];
         artist.albums.forEach((album: any) => {
+          albums.push({
+            imageURL: album.imageURL,
+            name: album.name,
+            artist: artist.name,
+          });
           albumSongs = albumSongs.concat(
             album.songs.map((song: any) => {
               return {
@@ -58,6 +66,8 @@ function App() {
           );
         });
 
+        artists.push({ name: artist.name, imageURL: artist.imageURL });
+
         songs.push({
           items: [...shuffleArray([...singles, ...albumSongs])],
           artist: artist.name,
@@ -65,14 +75,17 @@ function App() {
       });
       setHomeSongs(songs);
 
-      setMixSongs(
+      setArtistsData(artists);
+      setAlbumsData(albums);
+
+      setAllSongs(
         shuffleArray(
           songs
             .map((item) => {
               return item.items;
             })
             .flat()
-        ).slice(0, 12)
+        )
       );
     }
 
@@ -107,10 +120,22 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route
               index
-              element={<Home mixSongs={mixSongs} homeSongs={homeSongs} />}
+              element={
+                <Home mixSongs={allSongs.slice(0, 12)} homeSongs={homeSongs} />
+              }
             />
             <Route path="library" element={<Library />} />
-            <Route path="search" element={<SearchPage />} />
+            <Route
+              path="search"
+              element={
+                <SearchPage
+                  allSongs={allSongs}
+                  artistsData={artistsData}
+                  albumsData={albumsData}
+                  search={search.searchTerm}
+                />
+              }
+            />
             <Route path="album" element={<Album />} />
             <Route path="artist">
               <Route index element={<Artist />} />
