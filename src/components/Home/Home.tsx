@@ -10,9 +10,7 @@ function Home({ homeSongs, mixSongs }: { homeSongs: any; mixSongs: any }) {
 
   useEffect(() => {
     if (filter) {
-      setFilteredSongs(
-        homeSongs.filter((artist: any) => filter === artist.artist)
-      );
+      setFilteredSongs(homeSongs.filter((item: any) => filter === item.artist));
     } else {
       setFilteredSongs(homeSongs);
     }
@@ -23,13 +21,13 @@ function Home({ homeSongs, mixSongs }: { homeSongs: any; mixSongs: any }) {
     <div className="Home">
       <Filters filter={filter} setFilter={setFilter} />
       {!filter && <Mix mix={mixSongs} />}
-      {filteredSongs.map((data: any) => {
+      {filteredSongs.map((item: any) => {
         return (
           <Carousel
-            name={data.artist}
+            name={item.artist}
             type={"home"}
-            key={data.artist}
-            data={data}
+            key={item.artist}
+            data={item}
           />
         );
       })}

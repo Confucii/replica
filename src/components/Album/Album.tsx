@@ -10,8 +10,6 @@ function Album() {
   const [albumData, setAlbumData] = useState<any>(false);
   const location = useLocation();
 
-  console.log(location.state);
-
   const nav = useNavigate();
 
   function handleArtistRedirect() {

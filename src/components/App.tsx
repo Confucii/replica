@@ -40,7 +40,7 @@ function App() {
         let singles = artist.singles.map((single: any) => {
           return {
             ...single,
-            source: "single",
+            album: "single",
             artist: artist.name,
           };
         });
@@ -51,7 +51,7 @@ function App() {
             album.songs.map((song: any) => {
               return {
                 ...song,
-                source: album.name,
+                album: album.name,
                 artist: artist.name,
               };
             })

@@ -68,7 +68,7 @@ function Artist() {
       {artistSongs.artistSongsList && (
         <ArtistSongs
           artistSongs={artistSongs.artistSongsList}
-          artistName={artistData.name}
+          artist={artistData.name}
         />
       )}
       {artistData && artistData.albums.length > 0 && (

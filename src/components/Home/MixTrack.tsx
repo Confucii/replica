@@ -4,18 +4,18 @@ import test from "../../laser-gun.png";
 import play from "../recurring/images/play.svg";
 import { useNavigate } from "react-router-dom";
 
-function MixTrack({ track }: { track: any }) {
+function MixTrack({ data }: { data: any }) {
   const nav = useNavigate();
 
   function handleArtistRedirect() {
-    nav("/artist", { state: track.artist });
+    nav("/artist", { state: data.artist });
   }
 
   function handleAlbumRedirect() {
-    if (track.source === "single") {
-      nav("/artist", { state: track.artist });
+    if (data.source === "single") {
+      nav("/artist", { state: data.artist });
     } else {
-      nav("/album", { state: { album: track.source, artist: track.artist } });
+      nav("/album", { state: { album: data.album, artist: data.artist } });
     }
   }
 
@@ -25,19 +25,19 @@ function MixTrack({ track }: { track: any }) {
         className="mix-track-img"
         style={{
           backgroundImage: `url("${test}")`,
-          //backgroundImage: `url("${track.imageURL}")`,
+          //backgroundImage: `url("${data.imageURL}")`,
         }}
       >
         <img className="play-btn" src={play} alt="play" />
       </div>
-      <div className="mix-track-name">{capitalize(track.name)}</div>
+      <div className="mix-track-name">{capitalize(data.name)}</div>
       <div className="mix-track-sources">
         <div onClick={handleArtistRedirect} className="mix-track-artist">
-          {capitalize(track.artist)}
+          {capitalize(data.artist)}
         </div>
         {" | "}
         <div onClick={handleAlbumRedirect} className="mix-track-album">
-          {capitalize(track.source)}
+          {capitalize(data.album)}
         </div>
       </div>
     </div>

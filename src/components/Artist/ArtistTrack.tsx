@@ -7,11 +7,11 @@ import { useEffect, useState } from "react";
 
 function ArtistTrack({
   song,
-  artistName,
+  artist,
   duration,
 }: {
   song: any;
-  artistName: any;
+  artist: any;
   duration: boolean;
 }) {
   const nav = useNavigate();
@@ -38,14 +38,14 @@ function ArtistTrack({
 
   function handleRedirectSource() {
     if (song.album === "single") {
-      nav("/artist", { state: artistName });
+      nav("/artist", { state: artist });
     } else {
-      nav("/album", { state: { album: song.album, artist: artistName } });
+      nav("/album", { state: { album: song.album, artist: artist } });
     }
   }
 
   function handleRedirectArtist() {
-    nav("/artist", { state: artistName });
+    nav("/artist", { state: artist });
   }
 
   return (
@@ -63,7 +63,7 @@ function ArtistTrack({
         <div className="artist-track-name">{capitalize(song.name)}</div>
       </div>
       <div className="artist-track-artist" onClick={handleRedirectArtist}>
-        {capitalize(artistName)}
+        {capitalize(artist)}
       </div>
       <div className="artist-track-album" onClick={handleRedirectSource}>
         {capitalize(song.album)}

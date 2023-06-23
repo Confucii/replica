@@ -27,10 +27,10 @@ function CarouselItemCard({
   }
 
   function handleRedirectSource() {
-    if (data.source === "single") {
+    if (data.album === "single") {
       nav("/artist", { state: artist });
     } else {
-      nav("/album", { state: { album: data.source, artist: artist } });
+      nav("/album", { state: { album: data.album, artist: artist } });
     }
   }
 
@@ -78,7 +78,7 @@ function CarouselItemCard({
       </div>
       {type === "home" ? (
         <div onClick={handleRedirectSource} className="item-card-source">
-          {capitalize(data.source)}
+          {capitalize(data.album)}
         </div>
       ) : (
         <span className="item-card-type">{capitalize(type)}</span>

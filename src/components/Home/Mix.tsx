@@ -6,8 +6,8 @@ function Mix({ mix }: { mix: any }) {
     <div className="Mix">
       <span className="mix-name">Mix</span>
       <div className="mix-tracks">
-        {mix.map((track: any) => {
-          return <MixTrack key={track.name} track={track} />;
+        {mix.map((song: any) => {
+          return <MixTrack key={song.name} data={song} />;
         })}
       </div>
     </div>

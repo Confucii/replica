@@ -14,7 +14,7 @@ function SongsList() {
             <ArtistTrack
               song={song}
               duration={true}
-              artistName={location.state.artist}
+              artist={location.state.artist}
             />
           );
         })}

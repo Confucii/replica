@@ -4,15 +4,15 @@ import "./styles/ArtistSongs.css";
 
 function ArtistSongs({
   artistSongs,
-  artistName,
+  artist,
 }: {
   artistSongs: any;
-  artistName: any;
+  artist: any;
 }) {
   const nav = useNavigate();
 
   function handleRedirect() {
-    nav("songs", { state: { songs: artistSongs, artist: artistName } });
+    nav("songs", { state: { songs: artistSongs, artist: artist } });
   }
 
   return (
@@ -25,7 +25,7 @@ function ArtistSongs({
           return (
             <ArtistTrack
               duration={false}
-              artistName={artistName}
+              artist={artist}
               key={song.name}
               song={song}
             />
