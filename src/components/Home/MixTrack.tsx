@@ -12,7 +12,7 @@ function MixTrack({ data }: { data: any }) {
   }
 
   function handleAlbumRedirect() {
-    if (data.source === "single") {
+    if (data.album === "single") {
       nav("/artist", { state: data.artist });
     } else {
       nav("/album", { state: { album: data.album, artist: data.artist } });

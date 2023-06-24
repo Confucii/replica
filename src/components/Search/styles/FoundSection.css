@@ -1,0 +1,10 @@
+.FoundSection {
+  width: 40%;
+}
+
+.found-name {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}

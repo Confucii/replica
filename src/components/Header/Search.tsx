@@ -1,5 +1,5 @@
 import "./styles/Search.css";
-import search from "./images/magnify.svg";
+import search from "../recurring/images/magnify.svg";
 import back from "./images/arrow-left.svg";
 import { AppContext } from "../App";
 import { useContext } from "react";

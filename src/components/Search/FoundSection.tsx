@@ -14,7 +14,7 @@ function FoundSection({
     <div className="FoundSection">
       <div className="found-name">{name}</div>
       {data.map((item: any) => {
-        return <FoundItem type={type} data={item} />;
+        return <FoundItem key={item.name} type={type} data={item} />;
       })}
     </div>
   );

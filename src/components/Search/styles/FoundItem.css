@@ -1,0 +1,65 @@
+.FoundItem {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  column-gap: 15px;
+  row-gap: 5px;
+  padding: 10px 0;
+  padding-left: 10px;
+}
+
+.FoundItem + .FoundItem {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.found-item-img {
+  grid-row: 1/3;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: filter 0.5s ease-in-out;
+}
+
+.found-item-img.artist {
+  border-radius: 50%;
+}
+
+.found-item-img .play-btn {
+  width: 75%;
+  display: none;
+}
+
+.found-item-img:hover {
+  filter: brightness(80%);
+}
+
+.found-item-img:not(.artist):hover .play-btn {
+  display: block;
+  filter: invert(100%);
+}
+
+.found-item-name {
+  width: fit-content;
+  cursor: pointer;
+  color: var(--color-text-active);
+  align-self: end;
+  font-weight: bold;
+}
+
+.found-item-sources {
+  display: flex;
+  gap: 4px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.found-item-artist:hover,
+.found-item-album:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
