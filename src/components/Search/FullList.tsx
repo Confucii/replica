@@ -1,3 +1,4 @@
+import FoundItem from "./FoundItem";
 import "./styles/FullList.css";
 
 function FullList({
@@ -9,7 +10,14 @@ function FullList({
   type: string;
   name: string;
 }) {
-  return <div className="FullList"></div>;
+  return (
+    <div className="FullList">
+      <div className="found-name">{name}</div>
+      {data.map((item: any) => {
+        return <FoundItem key={item.name} type={type} data={item} />;
+      })}
+    </div>
+  );
 }
 
 export default FullList;

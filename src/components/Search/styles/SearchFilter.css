@@ -1,0 +1,6 @@
+.SearchFilter {
+  color: var(--color-text-active);
+  width: 40%;
+  display: flex;
+  gap: 10px;
+}

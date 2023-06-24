@@ -3,6 +3,9 @@ import FoundSection from "./FoundSection";
 import "./styles/SearchPage.css";
 import NoResults from "./NoResults";
 import FullList from "./FullList";
+import SearchFilter from "./SearchFilter";
+import ExactMatch from "./ExactMatch";
+import { capitalize } from "../../utility";
 
 function SearchPage({
   allSongs,
@@ -19,53 +22,63 @@ function SearchPage({
 
   const regex = new RegExp(search, "i");
   let children: any[] = [];
-  let filteredSongs, filteredAlbums, filteredArtists;
+  let filteredSongs, filteredAlbums, filteredArtists, allData;
 
   if (!filter) {
-    filteredSongs = allSongs
-      .filter((song: any) => {
-        return regex.test(song.name);
-      })
-      .slice(0, 3);
+    allData = allSongs.concat(albumsData).concat(artistsData);
 
-    filteredAlbums = albumsData
-      .filter((album: any) => {
-        return regex.test(album.name);
-      })
-      .slice(0, 3);
+    allData.forEach((item: any) => {
+      if (capitalize(item.name) === capitalize(search)) {
+        children.push(<ExactMatch key={item.name} data={item} />);
+      }
+    });
 
-    filteredArtists = artistsData
-      .filter((artist: any) => {
-        return regex.test(artist.name);
-      })
-      .slice(0, 3);
+    if (children.length === 0) {
+      filteredSongs = allSongs
+        .filter((song: any) => {
+          return regex.test(song.name);
+        })
+        .slice(0, 3);
 
-    children.push(
-      filteredSongs.length > 0 && (
-        <FoundSection
-          key="song"
-          type="song"
-          name="Songs"
-          data={filteredSongs}
-        />
-      ),
-      filteredAlbums.length > 0 && (
-        <FoundSection
-          key="album"
-          type="album"
-          name="Albums"
-          data={filteredAlbums}
-        />
-      ),
-      filteredArtists.length > 0 && (
-        <FoundSection
-          key="artist"
-          type="artist"
-          name="Artists"
-          data={filteredArtists}
-        />
-      )
-    );
+      filteredAlbums = albumsData
+        .filter((album: any) => {
+          return regex.test(album.name);
+        })
+        .slice(0, 3);
+
+      filteredArtists = artistsData
+        .filter((artist: any) => {
+          return regex.test(artist.name);
+        })
+        .slice(0, 3);
+
+      children.push(
+        filteredSongs.length > 0 && (
+          <FoundSection
+            key="song"
+            type="song"
+            name="Songs"
+            data={filteredSongs}
+          />
+        ),
+        filteredAlbums.length > 0 && (
+          <FoundSection
+            key="album"
+            type="album"
+            name="Albums"
+            data={filteredAlbums}
+          />
+        ),
+        filteredArtists.length > 0 && (
+          <FoundSection
+            key="artist"
+            type="artist"
+            name="Artists"
+            data={filteredArtists}
+          />
+        )
+      );
+    }
   } else {
     switch (filter) {
       case "songs":
@@ -73,7 +86,14 @@ function SearchPage({
           return regex.test(song.name);
         });
         children.push(
-          <FullList type="song" name="Songs" data={filteredSongs} />
+          filteredSongs.length > 0 && (
+            <FullList
+              key="Songs"
+              type="song"
+              name="Songs"
+              data={filteredSongs}
+            />
+          )
         );
         break;
       case "albums":
@@ -81,7 +101,14 @@ function SearchPage({
           return regex.test(album.name);
         });
         children.push(
-          <FullList type="album" name="Albums" data={filteredAlbums} />
+          filteredAlbums.length > 0 && (
+            <FullList
+              key="Albums"
+              type="album"
+              name="Albums"
+              data={filteredAlbums}
+            />
+          )
         );
         break;
       default:
@@ -89,7 +116,14 @@ function SearchPage({
           return regex.test(artist.name);
         });
         children.push(
-          <FullList type="artist" name="Artists" data={filteredArtists} />
+          filteredArtists.length > 0 && (
+            <FullList
+              key="Artists"
+              type="artist"
+              name="Artists"
+              data={filteredArtists}
+            />
+          )
         );
     }
   }
@@ -97,6 +131,7 @@ function SearchPage({
 
   return (
     <div className="SearchPage">
+      <SearchFilter filter={filter} setFilter={setFilter} />
       {children.length > 0 ? children : <NoResults search={search} />}
     </div>
   );

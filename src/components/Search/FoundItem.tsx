@@ -1,11 +1,33 @@
 import "./styles/FoundItem.css";
 import play from "../recurring/images/play.svg";
-import { capitalize } from "../../utility";
+import { calculateTime, capitalize } from "../../utility";
 import { useNavigate } from "react-router-dom";
 import test from "../../laser-gun.png";
+import { useEffect, useState } from "react";
 
 function FoundItem({ data, type }: { data: any; type: string }) {
+  const [durationValue, setDurationValue] = useState(0);
+
   const nav = useNavigate();
+
+  useEffect(() => {
+    if (type === "song") {
+      const audio = new Audio();
+      audio.src = data.audioURL;
+
+      audio.addEventListener("loadedmetadata", () => {
+        setDurationValue(audio.duration);
+      });
+
+      // Clean up the event listener
+      return () => {
+        audio.removeEventListener("loadedmetadata", () => {
+          setDurationValue(audio.duration);
+        });
+      };
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function handleArtistRedirect() {
     nav("/artist", { state: data.artist });
@@ -49,16 +71,24 @@ function FoundItem({ data, type }: { data: any; type: string }) {
       <div className="found-item-sources">
         <div className="found-item-type">{capitalize(type)}</div>
         {type !== "artist" && (
-          <div onClick={handleArtistRedirect}>
+          <div>
             {" | "}
-            <span className="found-item-artist">{capitalize(data.artist)}</span>
+            <span onClick={handleArtistRedirect} className="found-item-artist">
+              {capitalize(data.artist)}
+            </span>
           </div>
         )}
 
         {type === "song" && (
-          <div onClick={handleAlbumRedirect}>
+          <div>
             {" | "}
-            <span className="found-item-album">{capitalize(data.album)}</span>
+            <span onClick={handleAlbumRedirect} className="found-item-album">
+              {capitalize(data.album)}
+            </span>
+            {" | "}
+            <span className="found-item-duration">
+              {calculateTime(durationValue)}
+            </span>
           </div>
         )}
       </div>

@@ -8,3 +8,21 @@
   font-weight: bold;
   margin-bottom: 20px;
 }
+
+.found-more {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  height: 32px;
+  padding: 0 20px;
+  align-self: baseline;
+}
+
+.found-more:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

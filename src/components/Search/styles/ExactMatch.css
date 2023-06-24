@@ -1,0 +1,40 @@
+.ExactMatch {
+  width: 40%;
+  height: 20%;
+}
+
+.exact-match-name {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.background {
+  border-radius: 16px;
+  height: 80%;
+  background: radial-gradient(
+    circle,
+    rgba(230, 244, 2, 0.1) 0%,
+    rgba(63, 94, 251, 0.2) 100%
+  );
+}
+
+.exact-match-container {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ExactMatch .FoundItem {
+  transform: scale(1.5);
+  width: fit-content;
+  padding-left: 0;
+  padding-right: 30px;
+}
