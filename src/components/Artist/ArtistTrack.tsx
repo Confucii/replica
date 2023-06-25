@@ -1,5 +1,5 @@
 import "./styles/ArtistTrack.css";
-import play from "../recurring/images/play.svg";
+import play from "../images/play.svg";
 import { calculateTime, capitalize } from "../../utility";
 import test from "../../laser-gun.png";
 import { useNavigate } from "react-router-dom";

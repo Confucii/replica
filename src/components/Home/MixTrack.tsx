@@ -1,7 +1,7 @@
 import { capitalize } from "../../utility";
 import "./styles/MixTrack.css";
 import test from "../../laser-gun.png";
-import play from "../recurring/images/play.svg";
+import play from "../images/play.svg";
 import { useNavigate } from "react-router-dom";
 
 function MixTrack({ data }: { data: any }) {

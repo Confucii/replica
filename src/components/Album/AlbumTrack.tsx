@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { calculateTime, capitalize } from "../../utility";
-import play from "../recurring/images/play.svg";
+import play from "../images/play.svg";
 import "./styles/AlbumTrack.css";
 import { useNavigate } from "react-router-dom";
 

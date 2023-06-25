@@ -1,5 +1,5 @@
 import "./styles/NoResults.css";
-import magnify from "../recurring/images/magnify.svg";
+import magnify from "../images/magnify.svg";
 
 function NoResults({ search }: { search: string }) {
   return (

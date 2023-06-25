@@ -1,5 +1,5 @@
 import "./styles/Controls.css";
-import play from "../recurring/images/play.svg";
+import play from "../images/play.svg";
 import pause from "./images/pause.svg";
 import { useCallback, useEffect, useRef, useState } from "react";
 import TrackDisplay from "./TrackDisplay";

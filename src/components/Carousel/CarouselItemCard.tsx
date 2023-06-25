@@ -1,7 +1,7 @@
 import { capitalize } from "../../utility";
 import "./styles/CarouselItemCard.css";
 import test from "../../laser-gun.png";
-import play from "../recurring/images/play.svg";
+import play from "../images/play.svg";
 import { useState, useLayoutEffect, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
