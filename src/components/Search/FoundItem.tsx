@@ -48,7 +48,7 @@ function FoundItem({ data, type }: { data: any; type: string }) {
       nav("/artist", { state: data.name });
     } else {
       nav("/player", {
-        state: { album: data.album, artist: data.artist, song: data.name },
+        state: { song: data },
       });
     }
   }

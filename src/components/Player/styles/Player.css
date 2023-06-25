@@ -1,0 +1,6 @@
+.Player {
+  flex: 1;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+}

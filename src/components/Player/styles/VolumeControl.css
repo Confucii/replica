@@ -1,0 +1,14 @@
+.VolumeControl {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.volume-img {
+  filter: invert(100%);
+  height: 40%;
+}
+
+.volume-slider {
+  accent-color: white;
+}

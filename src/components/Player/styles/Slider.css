@@ -1,0 +1,9 @@
+.Slider {
+  position: relative;
+  top: 12px;
+}
+
+.time-slider {
+  width: 100%;
+  accent-color: red;
+}

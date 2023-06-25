@@ -1,0 +1,14 @@
+.TrackInfo {
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.track-info-image {
+  height: 60vh;
+  width: 60vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
