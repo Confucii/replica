@@ -63,7 +63,13 @@ function Album() {
           </div>
         </div>
       )}
-      {albumData && <AlbumTracks songs={albumData.songs} />}
+      {albumData && (
+        <AlbumTracks
+          album={albumData.name}
+          artist={location.state.artist}
+          songs={albumData.songs}
+        />
+      )}
     </div>
   );
 }

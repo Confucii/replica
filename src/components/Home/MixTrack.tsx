@@ -19,9 +19,16 @@ function MixTrack({ data }: { data: any }) {
     }
   }
 
+  function handleMainRedirect() {
+    nav("/player", {
+      state: { song: { ...data, album: data.album, artist: data.artist } },
+    });
+  }
+
   return (
     <div className="MixTrack">
       <div
+        onClick={handleMainRedirect}
         className="mix-track-img"
         style={{
           backgroundImage: `url("${test}")`,
@@ -30,7 +37,9 @@ function MixTrack({ data }: { data: any }) {
       >
         <img className="play-btn" src={play} alt="play" />
       </div>
-      <div className="mix-track-name">{capitalize(data.name)}</div>
+      <div onClick={handleMainRedirect} className="mix-track-name">
+        {capitalize(data.name)}
+      </div>
       <div className="mix-track-sources">
         <div onClick={handleArtistRedirect} className="mix-track-artist">
           {capitalize(data.artist)}

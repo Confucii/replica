@@ -20,7 +20,13 @@ function CarouselItemCard({
 
   function handleRedirectItem() {
     if (type === "home" || type === "single") {
-      nav("/player", { state: data });
+      type === "home"
+        ? nav("/player", {
+            state: { song: { ...data, album: data.album, artist: artist } },
+          })
+        : nav("/player", {
+            state: { song: { ...data, album: "single", artist: artist } },
+          });
     } else if (type === "album") {
       nav("/album", { state: { album: data.name, artist: artist } });
     }

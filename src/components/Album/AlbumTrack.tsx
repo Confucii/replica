@@ -2,9 +2,28 @@ import { useState, useEffect } from "react";
 import { calculateTime, capitalize } from "../../utility";
 import play from "../recurring/images/play.svg";
 import "./styles/AlbumTrack.css";
+import { useNavigate } from "react-router-dom";
 
-function AlbumTrack({ song, id }: { song: any; id: number }) {
+function AlbumTrack({
+  song,
+  id,
+  album,
+  artist,
+}: {
+  song: any;
+  id: number;
+  artist: string;
+  album: string;
+}) {
   const [duration, setDuration] = useState<any>(0);
+
+  const nav = useNavigate();
+
+  function handleMainRedirect() {
+    nav("/player", {
+      state: { song: { ...song, album: album, artist: artist } },
+    });
+  }
 
   useEffect(() => {
     const audio = new Audio();
@@ -26,9 +45,16 @@ function AlbumTrack({ song, id }: { song: any; id: number }) {
   return (
     <div className="AlbumTrack">
       <div className="album-track-left">
-        <img className="album-track-play" src={play} alt="play" />
+        <img
+          onClick={handleMainRedirect}
+          className="album-track-play"
+          src={play}
+          alt="play"
+        />
         <div className="album-track-number">{id}</div>
-        <div className="album-track-name">{capitalize(song.name)}</div>
+        <div onClick={handleMainRedirect} className="album-track-name">
+          {capitalize(song.name)}
+        </div>
       </div>
       <div className="album-track-duration">{calculateTime(duration)}</div>
     </div>

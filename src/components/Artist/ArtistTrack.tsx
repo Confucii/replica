@@ -48,10 +48,17 @@ function ArtistTrack({
     nav("/artist", { state: artist });
   }
 
+  function handleMainRedirect() {
+    nav("/player", {
+      state: { song: { ...song, album: song.album, artist: artist } },
+    });
+  }
+
   return (
     <div className="ArtistTrack">
       <div className="artist-track-left">
         <div
+          onClick={handleMainRedirect}
           className="artist-track-image"
           style={{
             backgroundImage: `url('${test}')`,
@@ -60,7 +67,9 @@ function ArtistTrack({
         >
           <img className="artist-track-play" src={play} alt="play" />
         </div>
-        <div className="artist-track-name">{capitalize(song.name)}</div>
+        <div onClick={handleMainRedirect} className="artist-track-name">
+          {capitalize(song.name)}
+        </div>
       </div>
       <div className="artist-track-artist" onClick={handleRedirectArtist}>
         {capitalize(artist)}
