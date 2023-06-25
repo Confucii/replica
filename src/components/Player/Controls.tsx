@@ -30,12 +30,15 @@ function Controls({
   const playAnimationRef = useRef(0);
 
   const repeat = useCallback(() => {
-    const currentSeconds = trackRef.current.currentTime;
+    const currentSeconds = trackRef?.current?.currentTime;
     setCurrentTime(currentSeconds);
 
-    sliderRef.current.value = currentSeconds * 100;
+    if (sliderRef.current) {
+      sliderRef.current.value = currentSeconds * 100;
+    }
 
     playAnimationRef.current = requestAnimationFrame(repeat);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trackRef, duration, sliderRef, setCurrentTime]);
 
