@@ -6,14 +6,12 @@ function TrackInfo({
   trackRef,
   setDuration,
   sliderRef,
-  isPlaying,
   setIsPlaying,
 }: {
   track: any;
   trackRef: any;
   setDuration: Function;
   sliderRef: any;
-  isPlaying: boolean;
   setIsPlaying: Function;
 }) {
   function handleLoad() {

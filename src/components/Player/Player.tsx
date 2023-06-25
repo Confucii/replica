@@ -22,7 +22,6 @@ function Player() {
         trackRef={trackRef}
         track={location.state.song}
         sliderRef={sliderRef}
-        isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
       />
       <Slider trackRef={trackRef} sliderRef={sliderRef} />
