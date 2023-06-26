@@ -1,13 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import ArtistTrack from "./ArtistTrack";
 import "./styles/ArtistSongs.css";
+import { SongDataTransmute } from "../../interfaces";
 
 function ArtistSongs({
   artistSongs,
   artist,
 }: {
-  artistSongs: any;
-  artist: any;
+  artistSongs: SongDataTransmute[];
+  artist: string;
 }) {
   const nav = useNavigate();
 
@@ -21,7 +22,7 @@ function ArtistSongs({
         Songs
       </div>
       <div className="artist-songs">
-        {artistSongs.slice(0, 5).map((song: any) => {
+        {artistSongs.slice(0, 5).map((song: SongDataTransmute) => {
           return (
             <ArtistTrack
               duration={false}

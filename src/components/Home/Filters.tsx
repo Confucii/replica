@@ -1,7 +1,13 @@
 import "./styles/Filters.css";
 import { downcase } from "../../utility";
 
-function Filters({ filter, setFilter }: { filter: any; setFilter: Function }) {
+function Filters({
+  filter,
+  setFilter,
+}: {
+  filter: boolean | string;
+  setFilter: Function;
+}) {
   function handleClick(e: React.MouseEvent<HTMLElement>) {
     const elementText = downcase(e.currentTarget.textContent || "error");
     if (filter !== elementText) {

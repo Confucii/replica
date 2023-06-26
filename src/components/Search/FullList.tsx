@@ -1,3 +1,4 @@
+import { AlbumDataTransmute, PureData, SongFullData } from "../../interfaces";
 import FoundItem from "./FoundItem";
 import "./styles/FullList.css";
 
@@ -6,14 +7,14 @@ function FullList({
   type,
   name,
 }: {
-  data: any;
+  data: SongFullData[] | PureData[] | AlbumDataTransmute[];
   type: string;
   name: string;
 }) {
   return (
     <div className="FullList">
       <div className="found-name">{name}</div>
-      {data.map((item: any) => {
+      {data.map((item: SongFullData | PureData | AlbumDataTransmute) => {
         return <FoundItem key={item.name} type={type} data={item} />;
       })}
     </div>

@@ -3,11 +3,12 @@ import { signOutUser } from "../../firebase/firebase";
 import { AppContext } from "../App";
 import { useContext } from "react";
 import signOut from "./images/logout.svg";
+import { ContextInterface } from "../../interfaces";
 
 function Dropdown() {
-  const context = useContext<any>(AppContext);
+  const context = useContext<ContextInterface>(AppContext);
 
-  function handleSignOut(e: React.MouseEvent<HTMLElement>) {
+  function handleSignOut() {
     context.dropdownHandler.setDropdown(!context.dropdownHandler.dropdown);
     signOutUser();
   }
@@ -20,11 +21,13 @@ function Dropdown() {
       }}
     >
       <div className="dropdown-user-data">
-        <img
-          className="dropdown-user-image"
-          src={context.user.img}
-          alt="profile"
-        />
+        {context.user.img && (
+          <img
+            className="dropdown-user-image"
+            src={context.user.img}
+            alt="profile"
+          />
+        )}
         <div className="dropdown-user-text">
           <span>{context.user.name}</span>
           <span>{context.user.email}</span>

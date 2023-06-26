@@ -6,6 +6,7 @@ import FullList from "./FullList";
 import SearchFilter from "./SearchFilter";
 import ExactMatch from "./ExactMatch";
 import { capitalize } from "../../utility";
+import { AlbumDataTransmute, PureData, SongFullData } from "../../interfaces";
 
 function SearchPage({
   allSongs,
@@ -13,21 +14,24 @@ function SearchPage({
   albumsData,
   search,
 }: {
-  allSongs: any;
-  artistsData: any;
-  albumsData: any;
+  allSongs: SongFullData[];
+  artistsData: PureData[];
+  albumsData: AlbumDataTransmute[];
   search: string;
 }) {
   const [filter, setFilter] = useState<boolean | string>(false);
 
   const regex = new RegExp(search, "i");
-  let children: any[] = [];
-  let filteredSongs, filteredAlbums, filteredArtists, allData;
+  let children: (JSX.Element | boolean)[] = [];
+  let filteredSongs: SongFullData[];
+  let filteredAlbums: AlbumDataTransmute[];
+  let filteredArtists: PureData[];
+  let allData: (SongFullData | PureData | AlbumDataTransmute)[];
 
   if (!filter) {
-    allData = allSongs.concat(albumsData).concat(artistsData);
+    allData = [...allSongs, ...albumsData, ...artistsData];
 
-    allData.forEach((item: any) => {
+    allData.forEach((item: SongFullData | PureData | AlbumDataTransmute) => {
       if (capitalize(item.name) === capitalize(search)) {
         children.push(<ExactMatch key={item.name} data={item} />);
       }
@@ -35,19 +39,19 @@ function SearchPage({
 
     if (children.length === 0) {
       filteredSongs = allSongs
-        .filter((song: any) => {
+        .filter((song: SongFullData) => {
           return regex.test(song.name);
         })
         .slice(0, 3);
 
       filteredAlbums = albumsData
-        .filter((album: any) => {
+        .filter((album: AlbumDataTransmute) => {
           return regex.test(album.name);
         })
         .slice(0, 3);
 
       filteredArtists = artistsData
-        .filter((artist: any) => {
+        .filter((artist: PureData) => {
           return regex.test(artist.name);
         })
         .slice(0, 3);
@@ -82,7 +86,7 @@ function SearchPage({
   } else {
     switch (filter) {
       case "songs":
-        filteredSongs = allSongs.filter((song: any) => {
+        filteredSongs = allSongs.filter((song: SongFullData) => {
           return regex.test(song.name);
         });
         children.push(
@@ -97,7 +101,7 @@ function SearchPage({
         );
         break;
       case "albums":
-        filteredAlbums = albumsData.filter((album: any) => {
+        filteredAlbums = albumsData.filter((album: AlbumDataTransmute) => {
           return regex.test(album.name);
         });
         children.push(
@@ -112,7 +116,7 @@ function SearchPage({
         );
         break;
       default:
-        filteredArtists = artistsData.filter((artist: any) => {
+        filteredArtists = artistsData.filter((artist: PureData) => {
           return regex.test(artist.name);
         });
         children.push(

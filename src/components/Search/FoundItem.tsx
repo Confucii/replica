@@ -4,14 +4,21 @@ import { calculateTime, capitalize } from "../../utility";
 import { useNavigate } from "react-router-dom";
 import test from "../../laser-gun.png";
 import { useEffect, useState } from "react";
+import { AlbumDataTransmute, PureData, SongFullData } from "../../interfaces";
 
-function FoundItem({ data, type }: { data: any; type: string }) {
+function FoundItem({
+  data,
+  type,
+}: {
+  data: SongFullData | PureData | AlbumDataTransmute;
+  type: string;
+}) {
   const [durationValue, setDurationValue] = useState(0);
 
   const nav = useNavigate();
 
   useEffect(() => {
-    if (type === "song") {
+    if ("audioURL" in data) {
       const audio = new Audio();
       audio.src = data.audioURL;
 
@@ -30,19 +37,19 @@ function FoundItem({ data, type }: { data: any; type: string }) {
   }, []);
 
   function handleArtistRedirect() {
-    nav("/artist", { state: data.artist });
+    if ("artist" in data) nav("/artist", { state: data.artist });
   }
 
   function handleAlbumRedirect() {
-    if (data.album === "single") {
+    if ("album" in data && data.album === "single") {
       nav("/artist", { state: data.artist });
-    } else {
+    } else if ("album" in data) {
       nav("/album", { state: { album: data.album, artist: data.artist } });
     }
   }
 
   function handleMainRedirect() {
-    if (type === "album") {
+    if (type === "album" && "artist" in data) {
       nav("/album", { state: { album: data.name, artist: data.artist } });
     } else if (type === "artist") {
       nav("/artist", { state: data.name });
@@ -70,7 +77,7 @@ function FoundItem({ data, type }: { data: any; type: string }) {
       </div>
       <div className="found-item-sources">
         <div className="found-item-type">{capitalize(type)}</div>
-        {type !== "artist" && (
+        {type !== "artist" && "artist" in data && (
           <div>
             {" | "}
             <span onClick={handleArtistRedirect} className="found-item-artist">
@@ -79,7 +86,7 @@ function FoundItem({ data, type }: { data: any; type: string }) {
           </div>
         )}
 
-        {type === "song" && (
+        {"album" in data && (
           <div>
             {" | "}
             <span onClick={handleAlbumRedirect} className="found-item-album">

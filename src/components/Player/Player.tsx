@@ -12,8 +12,8 @@ function Player() {
 
   const location = useLocation();
 
-  const sliderRef = useRef();
-  const trackRef = useRef();
+  const sliderRef = useRef<HTMLInputElement>({} as HTMLInputElement);
+  const trackRef = useRef<HTMLAudioElement>({} as HTMLAudioElement);
 
   return (
     <div className="Player">

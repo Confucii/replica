@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import TrackDisplay from "./TrackDisplay";
 import { calculateTime } from "../../utility";
 import VolumeControl from "./VolumeControl";
+import { SongFullData } from "../../interfaces";
 
 function Controls({
   trackRef,
@@ -16,12 +17,12 @@ function Controls({
   isPlaying,
   setIsPlaying,
 }: {
-  trackRef: any;
-  track: any;
+  trackRef: React.MutableRefObject<HTMLAudioElement>;
+  track: SongFullData;
   duration: number;
   currentTime: number;
   setCurrentTime: Function;
-  sliderRef: any;
+  sliderRef: React.MutableRefObject<HTMLInputElement>;
   isPlaying: boolean;
   setIsPlaying: Function;
 }) {
@@ -34,7 +35,7 @@ function Controls({
     setCurrentTime(currentSeconds);
 
     if (sliderRef.current) {
-      sliderRef.current.value = currentSeconds * 100;
+      sliderRef.current.value = `${currentSeconds * 100}`;
     }
 
     playAnimationRef.current = requestAnimationFrame(repeat);

@@ -5,13 +5,19 @@ import right from "./images/chevron-right-circle-outline.svg";
 import "./styles/Carousel.css";
 import CarouselItemCard from "./CarouselItemCard";
 import { useNavigate } from "react-router-dom";
+import {
+  AlbumData,
+  CarouselData,
+  SongData,
+  SongFullData,
+} from "../../interfaces";
 
 function Carousel({
   data,
   type,
   name,
 }: {
-  data: any;
+  data: CarouselData;
   type: string;
   name: string;
 }) {
@@ -70,7 +76,7 @@ function Carousel({
           className="carousel-images"
           style={{ transform: `translate(${-(index * (offset || 0))}px, 0)` }}
         >
-          {data.items.map((item: any) => {
+          {data.items.map((item: SongFullData | AlbumData | SongData) => {
             return (
               <CarouselItemCard
                 type={type}

@@ -5,6 +5,8 @@ import {
   GoogleAuthProvider,
   signInWithRedirect,
   signOut,
+  NextOrObserver,
+  User,
 } from "firebase/auth";
 import {
   getFirestore,
@@ -13,6 +15,7 @@ import {
   getDoc,
   doc,
 } from "@firebase/firestore";
+import { ArtistData } from "../interfaces";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAXiqr4IiGXVBuU_nRoXPYNZ6fZEdz6X6Q",
@@ -35,17 +38,17 @@ export function signOutUser() {
   signOut(getAuth());
 }
 
-export function initFirebaseAuth(callback: any) {
+export function initFirebaseAuth(callback: NextOrObserver<User>) {
   onAuthStateChanged(getAuth(), callback);
 }
 
 export async function getData() {
   const dataSnapshot = await getDocs(collection(firestore, "artists"));
   const data = dataSnapshot.docs.map((doc) => doc.data());
-  return data;
+  return data as ArtistData[];
 }
 
 export async function getArtistData(name: string) {
   const dataSnapshot = await getDoc(doc(firestore, "artists", name));
-  return dataSnapshot.data() as any;
+  return dataSnapshot.data() as ArtistData;
 }

@@ -1,7 +1,8 @@
+import { SongFullData } from "../../interfaces";
 import MixTrack from "./MixTrack";
 import "./styles/Mix.css";
 
-function Mix({ mix }: { mix: any }) {
+function Mix({ mix }: { mix: SongFullData[] }) {
   return (
     <div className="Mix">
       <span className="mix-name">Mix</span>

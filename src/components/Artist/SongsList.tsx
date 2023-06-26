@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import "./styles/SongsList.css";
 import ArtistTrack from "./ArtistTrack";
+import { SongDataTransmute } from "../../interfaces";
 
 function SongsList() {
   const location = useLocation();
@@ -9,7 +10,7 @@ function SongsList() {
     <div className="SongsList">
       <span className="songs-list-name">Songs</span>
       <div className="songs-list">
-        {location.state.songs.map((song: any) => {
+        {location.state.songs.map((song: SongDataTransmute) => {
           return (
             <ArtistTrack
               song={song}

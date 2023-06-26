@@ -6,29 +6,44 @@ import Library from "./Library/Library";
 import { getData, initFirebaseAuth } from "../firebase/firebase";
 import { createContext, useEffect, useState } from "react";
 import SearchPage from "./Search/SearchPage";
-//import { data } from "../data";
 import Album from "./Album/Album";
 import Artist from "./Artist/Artist";
 import { shuffleArray } from "../utility";
 import SongsList from "./Artist/SongsList";
 import Player from "./Player/Player";
+import {
+  AlbumData,
+  AlbumDataTransmute,
+  ArtistData,
+  ContextInterface,
+  CarouselData,
+  PureData,
+  SearchHandler,
+  SongData,
+  SongFullData,
+  UserData,
+} from "../interfaces";
 
-export const AppContext = createContext({});
+export const AppContext = createContext({} as ContextInterface);
 
 function App() {
   // context states
-  const [user, setUser] = useState<any>(false);
-  const [dropdown, setDropdown] = useState<any>(false);
-  const [search, setSearch] = useState<any>({
+  const [user, setUser] = useState<UserData>({
+    name: null,
+    email: null,
+    img: null,
+  });
+  const [dropdown, setDropdown] = useState<boolean>(false);
+  const [search, setSearch] = useState<SearchHandler>({
     searchTerm: "",
     searchStatus: false,
   });
   // change to empty array
-  const [artistsData, setArtistsData] = useState<any>([]);
-  const [albumsData, setAlbumsData] = useState<any>([]);
-  const [homeSongs, setHomeSongs] = useState<any>([]);
-  const [allSongs, setAllSongs] = useState<any>([]);
-  const context: any = {
+  const [artistsData, setArtistsData] = useState<PureData[]>([]);
+  const [albumsData, setAlbumsData] = useState<AlbumDataTransmute[]>([]);
+  const [homeSongs, setHomeSongs] = useState<CarouselData[]>([]);
+  const [allSongs, setAllSongs] = useState<SongFullData[]>([]);
+  const context: ContextInterface = {
     user: user,
     dropdownHandler: { dropdown, setDropdown },
     searchHandler: { search, setSearch },
@@ -37,11 +52,11 @@ function App() {
   useEffect(() => {
     async function getFullData() {
       const fullData = await getData();
-      let artists: any[] = [];
-      let albums: any[] = [];
-      let songs: any[] = [];
-      fullData.forEach((artist: any) => {
-        let singles = artist.singles.map((single: any) => {
+      let artists: PureData[] = [];
+      let albums: AlbumDataTransmute[] = [];
+      let songs: CarouselData[] = [];
+      fullData.forEach((artist: ArtistData) => {
+        let singles = artist.singles.map((single: SongData) => {
           return {
             ...single,
             album: "single",
@@ -49,15 +64,15 @@ function App() {
           };
         });
 
-        let albumSongs: any[] = [];
-        artist.albums.forEach((album: any) => {
+        let albumSongs: SongFullData[] = [];
+        artist.albums.forEach((album: AlbumData) => {
           albums.push({
             imageURL: album.imageURL,
             name: album.name,
             artist: artist.name,
           });
           albumSongs = albumSongs.concat(
-            album.songs.map((song: any) => {
+            album.songs.map((song: SongData) => {
               return {
                 ...song,
                 album: album.name,
@@ -90,7 +105,7 @@ function App() {
       );
     }
 
-    initFirebaseAuth((user: any) => {
+    initFirebaseAuth((user) => {
       if (user) {
         setUser({
           name: user.displayName,
@@ -98,7 +113,7 @@ function App() {
           img: user.photoURL,
         });
       } else {
-        setUser(false);
+        setUser({ name: null, email: null, img: null });
       }
     });
     //THIS INSTEAD OF data.tsx FILE

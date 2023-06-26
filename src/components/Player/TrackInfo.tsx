@@ -1,5 +1,6 @@
 import "./styles/TrackInfo.css";
 import test from "../../laser-gun.png";
+import { SongFullData } from "../../interfaces";
 
 function TrackInfo({
   track,
@@ -8,17 +9,17 @@ function TrackInfo({
   sliderRef,
   setIsPlaying,
 }: {
-  track: any;
-  trackRef: any;
+  track: SongFullData;
+  trackRef: React.MutableRefObject<HTMLAudioElement>;
   setDuration: Function;
-  sliderRef: any;
+  sliderRef: React.MutableRefObject<HTMLInputElement>;
   setIsPlaying: Function;
 }) {
   function handleLoad() {
     const seconds = trackRef.current.duration;
     setDuration(seconds);
 
-    sliderRef.current.max = seconds * 100;
+    sliderRef.current.max = `${seconds * 100}`;
   }
 
   function handleEnd() {

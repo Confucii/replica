@@ -3,14 +3,23 @@ import "./styles/Home.css";
 import Carousel from "../Carousel/Carousel";
 import Filters from "./Filters";
 import Mix from "./Mix";
+import { CarouselData, SongFullData } from "../../interfaces";
 
-function Home({ homeSongs, mixSongs }: { homeSongs: any; mixSongs: any }) {
-  const [filter, setFilter]: any = useState(false);
-  const [filteredSongs, setFilteredSongs] = useState([]);
+function Home({
+  homeSongs,
+  mixSongs,
+}: {
+  homeSongs: CarouselData[];
+  mixSongs: SongFullData[];
+}) {
+  const [filter, setFilter] = useState<boolean | string>(false);
+  const [filteredSongs, setFilteredSongs] = useState<CarouselData[]>([]);
 
   useEffect(() => {
     if (filter) {
-      setFilteredSongs(homeSongs.filter((item: any) => filter === item.artist));
+      setFilteredSongs(
+        homeSongs.filter((item: CarouselData) => filter === item.artist)
+      );
     } else {
       setFilteredSongs(homeSongs);
     }
@@ -21,7 +30,7 @@ function Home({ homeSongs, mixSongs }: { homeSongs: any; mixSongs: any }) {
     <div className="Home">
       <Filters filter={filter} setFilter={setFilter} />
       {!filter && <Mix mix={mixSongs} />}
-      {filteredSongs.map((item: any) => {
+      {filteredSongs.map((item: CarouselData) => {
         return (
           <Carousel
             name={item.artist}

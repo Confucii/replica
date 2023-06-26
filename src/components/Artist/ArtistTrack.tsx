@@ -4,14 +4,15 @@ import { calculateTime, capitalize } from "../../utility";
 import test from "../../laser-gun.png";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { SongDataTransmute } from "../../interfaces";
 
 function ArtistTrack({
   song,
   artist,
   duration,
 }: {
-  song: any;
-  artist: any;
+  song: SongDataTransmute;
+  artist: string;
   duration: boolean;
 }) {
   const nav = useNavigate();

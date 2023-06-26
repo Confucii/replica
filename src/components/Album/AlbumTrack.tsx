@@ -3,6 +3,7 @@ import { calculateTime, capitalize } from "../../utility";
 import play from "../images/play.svg";
 import "./styles/AlbumTrack.css";
 import { useNavigate } from "react-router-dom";
+import { SongData } from "../../interfaces";
 
 function AlbumTrack({
   song,
@@ -10,12 +11,12 @@ function AlbumTrack({
   album,
   artist,
 }: {
-  song: any;
+  song: SongData;
   id: number;
   artist: string;
   album: string;
 }) {
-  const [duration, setDuration] = useState<any>(0);
+  const [duration, setDuration] = useState<number>(0);
 
   const nav = useNavigate();
 

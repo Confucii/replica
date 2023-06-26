@@ -4,13 +4,14 @@ import test from "../../laser-gun.png";
 import play from "../images/play.svg";
 import { useState, useLayoutEffect, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { AlbumData, SongData, SongFullData } from "../../interfaces";
 
 function CarouselItemCard({
   data,
   type,
   artist,
 }: {
-  data: any;
+  data: SongFullData | AlbumData | SongData;
   type: string;
   artist: string;
 }) {
@@ -20,7 +21,7 @@ function CarouselItemCard({
 
   function handleRedirectItem() {
     if (type === "home" || type === "single") {
-      type === "home"
+      "album" in data
         ? nav("/player", {
             state: { song: { ...data, album: data.album, artist: artist } },
           })
@@ -33,10 +34,12 @@ function CarouselItemCard({
   }
 
   function handleRedirectSource() {
-    if (data.album === "single") {
-      nav("/artist", { state: artist });
-    } else {
-      nav("/album", { state: { album: data.album, artist: artist } });
+    if ("album" in data) {
+      if (data.album === "single") {
+        nav("/artist", { state: artist });
+      } else {
+        nav("/album", { state: { album: data.album, artist: artist } });
+      }
     }
   }
 
@@ -82,7 +85,7 @@ function CarouselItemCard({
       <div className="item-card-title" onClick={handleRedirectItem}>
         {capitalize(data.name)}
       </div>
-      {type === "home" ? (
+      {"album" in data ? (
         <div onClick={handleRedirectSource} className="item-card-source">
           {capitalize(data.album)}
         </div>

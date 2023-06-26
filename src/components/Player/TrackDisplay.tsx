@@ -2,8 +2,9 @@ import { useNavigate } from "react-router-dom";
 import "./styles/TrackDisplay.css";
 import { capitalize } from "../../utility";
 import test from "../../laser-gun.png";
+import { SongFullData } from "../../interfaces";
 
-function TrackDisplay({ track }: { track: any }) {
+function TrackDisplay({ track }: { track: SongFullData }) {
   const nav = useNavigate();
 
   function handleArtistRedirect() {

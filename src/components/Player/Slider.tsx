@@ -1,8 +1,14 @@
 import "./styles/Slider.css";
 
-function Slider({ sliderRef, trackRef }: { sliderRef: any; trackRef: any }) {
+function Slider({
+  sliderRef,
+  trackRef,
+}: {
+  sliderRef: React.MutableRefObject<HTMLInputElement>;
+  trackRef: React.MutableRefObject<HTMLAudioElement>;
+}) {
   function handleChange() {
-    trackRef.current.currentTime = sliderRef.current.value / 100;
+    trackRef.current.currentTime = Number(sliderRef.current.value) / 100;
   }
 
   return (

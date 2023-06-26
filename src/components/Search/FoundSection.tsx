@@ -1,3 +1,4 @@
+import { AlbumDataTransmute, PureData, SongFullData } from "../../interfaces";
 import FoundItem from "./FoundItem";
 import "./styles/FoundSection.css";
 
@@ -7,7 +8,7 @@ function FoundSection({
   type,
 }: {
   name: string;
-  data: any;
+  data: SongFullData[] | PureData[] | AlbumDataTransmute[];
   type: string;
 }) {
   function handleFilter() {
@@ -20,7 +21,7 @@ function FoundSection({
   return (
     <div className="FoundSection">
       <div className="found-name">{name}</div>
-      {data.map((item: any) => {
+      {data.map((item: SongFullData | PureData | AlbumDataTransmute) => {
         return <FoundItem key={item.name} type={type} data={item} />;
       })}
       <button className="found-more" onClick={handleFilter}>

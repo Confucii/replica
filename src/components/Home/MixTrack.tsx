@@ -3,8 +3,9 @@ import "./styles/MixTrack.css";
 import test from "../../laser-gun.png";
 import play from "../images/play.svg";
 import { useNavigate } from "react-router-dom";
+import { SongFullData } from "../../interfaces";
 
-function MixTrack({ data }: { data: any }) {
+function MixTrack({ data }: { data: SongFullData }) {
   const nav = useNavigate();
 
   function handleArtistRedirect() {

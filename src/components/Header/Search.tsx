@@ -4,9 +4,10 @@ import back from "./images/arrow-left.svg";
 import { AppContext } from "../App";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { ContextInterface } from "../../interfaces";
 
 function Search() {
-  const context = useContext<any>(AppContext);
+  const context = useContext<ContextInterface>(AppContext);
   const navigator = useNavigate();
 
   function handleSearchStatusChange() {

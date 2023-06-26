@@ -5,9 +5,10 @@ import { capitalize } from "../../utility";
 import { useEffect, useState } from "react";
 import { getArtistData } from "../../firebase/firebase";
 import AlbumTracks from "./AlbumTracks";
+import { AlbumData } from "../../interfaces";
 
 function Album() {
-  const [albumData, setAlbumData] = useState<any>(false);
+  const [albumData, setAlbumData] = useState<AlbumData>();
   const location = useLocation();
 
   const nav = useNavigate();
@@ -20,7 +21,7 @@ function Album() {
     async function getAlbumData() {
       const artistData = await getArtistData(location.state.artist);
 
-      const chosenAlbumData = artistData.albums.filter((album: any) => {
+      const chosenAlbumData = artistData.albums.filter((album: AlbumData) => {
         return album.name === location.state.album;
       });
 

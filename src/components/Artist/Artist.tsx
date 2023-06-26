@@ -6,10 +6,17 @@ import { useEffect, useState } from "react";
 import test from "../../laser-gun.png";
 import ArtistSongs from "./ArtistSongs";
 import Carousel from "../Carousel/Carousel";
+import {
+  AlbumData,
+  ArtistData,
+  ArtistFullSongList,
+  SongData,
+  SongDataTransmute,
+} from "../../interfaces";
 
 function Artist() {
-  const [artistData, setArtistData] = useState<any>(false);
-  const [artistSongs, setArtistSongs] = useState<any>({
+  const [artistData, setArtistData] = useState<ArtistData | false>(false);
+  const [artistSongs, setArtistSongs] = useState<ArtistFullSongList>({
     artistFullSongsStatus: false,
     artistSongsList: [],
   });
@@ -18,11 +25,11 @@ function Artist() {
   useEffect(() => {
     async function getArtistDataAsync() {
       const artistData = await getArtistData(location.state);
-      let songList: any = [];
+      let songList: SongDataTransmute[] = [];
 
-      artistData.albums.forEach((album: any) => {
+      artistData.albums.forEach((album: AlbumData) => {
         songList = songList.concat(
-          album.songs.map((song: any) => {
+          album.songs.map((song: SongData) => {
             return {
               ...song,
               album: album.name,
@@ -32,7 +39,7 @@ function Artist() {
       });
 
       songList = songList.concat(
-        artistData.singles.map((song: any) => {
+        artistData.singles.map((song: SongData) => {
           return {
             ...song,
             album: "single",
@@ -65,7 +72,7 @@ function Artist() {
           </div>
         </div>
       )}
-      {artistSongs.artistSongsList && (
+      {artistData && artistSongs.artistSongsList && (
         <ArtistSongs
           artistSongs={artistSongs.artistSongsList}
           artist={artistData.name}

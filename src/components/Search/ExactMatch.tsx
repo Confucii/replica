@@ -1,12 +1,17 @@
+import { AlbumDataTransmute, PureData, SongFullData } from "../../interfaces";
 import FoundItem from "./FoundItem";
 import "./styles/ExactMatch.css";
 
-function ExactMatch({ data }: { data: any }) {
+function ExactMatch({
+  data,
+}: {
+  data: SongFullData | PureData | AlbumDataTransmute;
+}) {
   let type;
 
-  if (data.album) {
+  if ("album" in data) {
     type = "song";
-  } else if (data.artist && !data.album) {
+  } else if ("artist" in data && !("album" in data)) {
     type = "album";
   } else {
     type = "artist";

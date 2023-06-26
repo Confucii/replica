@@ -3,24 +3,27 @@ import { signIn } from "../../firebase/firebase";
 import "./styles/User.css";
 import { AppContext } from "../App";
 import Dropdown from "./Dropdown";
+import { ContextInterface } from "../../interfaces";
 
 function User() {
-  const context = useContext<any>(AppContext);
+  const context = useContext<ContextInterface>(AppContext);
 
   return (
     <div className="User">
-      {context.user ? (
+      {context.user.name ? (
         <div className="user-data">
-          <img
-            className="user-img"
-            onClick={() =>
-              context.dropdownHandler.setDropdown(
-                !context.dropdownHandler.dropdown
-              )
-            }
-            src={context.user.img}
-            alt="profile"
-          />
+          {context.user.img && (
+            <img
+              className="user-img"
+              onClick={() =>
+                context.dropdownHandler.setDropdown(
+                  !context.dropdownHandler.dropdown
+                )
+              }
+              src={context.user.img}
+              alt="profile"
+            />
+          )}
           {context.dropdownHandler.dropdown && <Dropdown />}
         </div>
       ) : (

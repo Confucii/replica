@@ -6,9 +6,10 @@ import Search from "./Search";
 import { useContext } from "react";
 import { AppContext } from "../App";
 import { signIn } from "../../firebase/firebase";
+import { ContextInterface } from "../../interfaces";
 
 function Header() {
-  const context = useContext<any>(AppContext);
+  const context = useContext<ContextInterface>(AppContext);
 
   function librarySignInHandler() {
     if (!context.user) {
