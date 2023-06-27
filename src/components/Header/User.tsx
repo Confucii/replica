@@ -4,9 +4,17 @@ import "./styles/User.css";
 import { AppContext } from "../App";
 import Dropdown from "./Dropdown";
 import { ContextInterface } from "../../interfaces";
+import { useNavigate } from "react-router-dom";
 
 function User() {
   const context = useContext<ContextInterface>(AppContext);
+
+  const nav = useNavigate();
+
+  function handleLogIn() {
+    nav("/");
+    signIn();
+  }
 
   return (
     <div className="User">
@@ -27,7 +35,7 @@ function User() {
           {context.dropdownHandler.dropdown && <Dropdown />}
         </div>
       ) : (
-        <button className="sign-in-btn" onClick={signIn}>
+        <button className="sign-in-btn" onClick={handleLogIn}>
           Sign in
         </button>
       )}

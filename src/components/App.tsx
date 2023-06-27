@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./Home/Home";
 import Layout from "./Layout";
 import Library from "./Library/Library";
-import { getData, initFirebaseAuth } from "../firebase/firebase";
+import { getData, initFirebaseAuth, setUserData } from "../firebase/firebase";
 import { createContext, useEffect, useState } from "react";
 import SearchPage from "./Search/SearchPage";
 import Album from "./Album/Album";
@@ -29,6 +29,7 @@ export const AppContext = createContext({} as ContextInterface);
 function App() {
   // context states
   const [user, setUser] = useState<UserData>({
+    uid: null,
     name: null,
     email: null,
     img: null,
@@ -106,15 +107,17 @@ function App() {
       );
     }
 
-    initFirebaseAuth((user) => {
+    initFirebaseAuth(async (user) => {
       if (user) {
         setUser({
+          uid: user.uid,
           name: user.displayName,
           email: user.email,
           img: user.photoURL,
         });
+        setUserData(user.uid);
       } else {
-        setUser({ name: null, email: null, img: null });
+        setUser({ uid: null, name: null, email: null, img: null });
       }
     });
     //THIS INSTEAD OF data.tsx FILE

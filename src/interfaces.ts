@@ -32,6 +32,7 @@ export interface AlbumDataTransmute extends PureData {
 }
 
 export interface UserData {
+  uid: string | null;
   name: string | null;
   email: string | null;
   img: string | null;

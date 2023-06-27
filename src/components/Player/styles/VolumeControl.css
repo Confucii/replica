@@ -1,7 +1,9 @@
 .VolumeControl {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 20px;
+  flex: 1;
 }
 
 .volume-img {

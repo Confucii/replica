@@ -1,15 +1,15 @@
 .Controls {
   display: flex;
-  height: 10%;
+  height: 10vh;
   padding: 0 50px;
   background-color: rgba(255, 255, 255, 0.1);
-  justify-content: space-between;
 }
 
 .controls-btns {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex: 1;
 }
 
 .controls-img {
