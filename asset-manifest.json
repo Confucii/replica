@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/replica/static/css/main.926b1b93.css",
+    "main.js": "/replica/static/js/main.bc80d939.js",
+    "static/media/laser-gun.png": "/replica/static/media/laser-gun.9373d7e2544504b15018.png",
+    "static/media/home-sound-out.svg": "/replica/static/media/home-sound-out.2acd2c80244d5ed63d586a34ebbac6aa.svg",
+    "static/media/volume-off.svg": "/replica/static/media/volume-off.514a6dfafe3a24b71966a3db56909fca.svg",
+    "index.html": "/replica/index.html",
+    "static/media/thumb-up-outline.svg": "/replica/static/media/thumb-up-outline.fd5a12d1e2119967de41bb404c48c371.svg",
+    "static/media/magnify.svg": "/replica/static/media/magnify.54ff7732bb1a5ff166c6773909d49bd0.svg",
+    "static/media/thumb-up.svg": "/replica/static/media/thumb-up.c66af91b9232cc1c283a1ded41768fed.svg",
+    "static/media/volume-high.svg": "/replica/static/media/volume-high.557eb702d9f8e422088209d89f109a4a.svg",
+    "static/media/chevron-left-circle-outline.svg": "/replica/static/media/chevron-left-circle-outline.786e0f5088cb98719a9dc33c83b622c4.svg",
+    "static/media/chevron-right-circle-outline.svg": "/replica/static/media/chevron-right-circle-outline.98ee0f8499f1d049fdcb9547c7469a2b.svg",
+    "static/media/logout.svg": "/replica/static/media/logout.5b73c6921073367ac21354dc7f19d2bc.svg",
+    "static/media/music-note.svg": "/replica/static/media/music-note.a3e196cbb066ea1534a050d3a049e576.svg",
+    "static/media/arrow-left.svg": "/replica/static/media/arrow-left.36bec1667db89cdb26a7186d0b9ab783.svg",
+    "static/media/skip-previous.svg": "/replica/static/media/skip-previous.834609e21c965eb622f267224730ee65.svg",
+    "static/media/skip-next.svg": "/replica/static/media/skip-next.b1f1ac74e3bd6ccdd4c554f08fd159d9.svg",
+    "static/media/pause.svg": "/replica/static/media/pause.6fdfa4a59b3d155367d56f1e5dcfd628.svg",
+    "static/media/play.svg": "/replica/static/media/play.9ee4a23d852217c79e80f41b7ab72218.svg",
+    "main.926b1b93.css.map": "/replica/static/css/main.926b1b93.css.map",
+    "main.bc80d939.js.map": "/replica/static/js/main.bc80d939.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.926b1b93.css",
+    "static/js/main.bc80d939.js"
+  ]
+}
