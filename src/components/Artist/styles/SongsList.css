@@ -8,8 +8,18 @@
   padding: 40px 0 100px;
 }
 
-.songs-list-name {
+.songs-list-header {
   width: 80%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.album-btn.artist-btn {
+  align-self: center;
+}
+
+.songs-list-name {
   color: white;
   font-weight: bold;
   font-size: 2.5rem;

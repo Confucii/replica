@@ -1,13 +1,13 @@
-.TrackInfo {
+.PlayerInfo {
   height: 90%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
-.track-info-image {
-  height: 60vh;
-  width: 60vh;
+.player-info-image {
+  height: 35vw;
+  width: 35vw;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

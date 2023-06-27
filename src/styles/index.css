@@ -3,6 +3,25 @@
   --color-text-passive: rgba(255, 255, 255, 0.5);
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #191d1d;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #515151;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6e6e6e;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -5,13 +5,25 @@ import { capitalize } from "../../utility";
 import { useEffect, useState } from "react";
 import { getArtistData } from "../../firebase/firebase";
 import AlbumTracks from "./AlbumTracks";
-import { AlbumData } from "../../interfaces";
+import { AlbumData, SongData } from "../../interfaces";
 
 function Album() {
   const [albumData, setAlbumData] = useState<AlbumData>();
   const location = useLocation();
-
   const nav = useNavigate();
+
+  function handleQueueAddition() {
+    if (albumData) {
+      let albumSongs = albumData.songs.map((song: SongData) => {
+        return {
+          ...song,
+          album: albumData.name,
+          artist: location.state.artist,
+        };
+      });
+      nav("/player", { state: albumSongs });
+    }
+  }
 
   function handleArtistRedirect() {
     nav("/artist", { state: location.state.artist });
@@ -61,6 +73,9 @@ function Album() {
             <div className="album-text">
               {"Description: " + albumData.description}
             </div>
+            <button className="album-btn" onClick={handleQueueAddition}>
+              Play
+            </button>
           </div>
         </div>
       )}

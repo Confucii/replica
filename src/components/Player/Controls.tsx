@@ -6,8 +6,13 @@ import TrackDisplay from "./TrackDisplay";
 import { calculateTime } from "../../utility";
 import VolumeControl from "./VolumeControl";
 import { SongFullData } from "../../interfaces";
+import skipNext from "./images/skip-next.svg";
+import skipPrevious from "./images/skip-previous.svg";
 
 function Controls({
+  queueLength,
+  queueIndex,
+  setQueueIndex,
   trackRef,
   track,
   duration,
@@ -17,6 +22,9 @@ function Controls({
   isPlaying,
   setIsPlaying,
 }: {
+  queueLength: number;
+  queueIndex: number;
+  setQueueIndex: Function;
   trackRef: React.MutableRefObject<HTMLAudioElement>;
   track: SongFullData;
   duration: number;
@@ -29,6 +37,22 @@ function Controls({
   const [volume, setVolume] = useState(100);
 
   const playAnimationRef = useRef(0);
+
+  function nextTrack() {
+    if (queueIndex + 1 < queueLength) {
+      setQueueIndex((index: number) => index + 1);
+      setIsPlaying(true);
+    }
+  }
+
+  function previousTrack() {
+    if (queueIndex - 1 >= 0) {
+      setQueueIndex((index: number) => index - 1);
+    }
+    if (queueIndex - 1 === 0) {
+      setIsPlaying(false);
+    }
+  }
 
   const repeat = useCallback(() => {
     const currentSeconds = trackRef?.current?.currentTime;
@@ -69,12 +93,26 @@ function Controls({
 
   return (
     <div className="Controls">
-      <div className="play-status">
+      <div className="controls-btns">
+        <img
+          onClick={previousTrack}
+          className={`controls-img ${queueIndex === 0 && "disabled"}`}
+          src={skipPrevious}
+          alt="skip-previous"
+        />
         <img
           onClick={togglePlayPause}
-          className="play-status-img"
+          className="controls-img"
           src={isPlaying ? pause : play}
           alt="play status"
+        />
+        <img
+          onClick={nextTrack}
+          className={`controls-img ${
+            queueIndex + 1 === queueLength && "disabled"
+          }`}
+          src={skipNext}
+          alt="skip-next"
         />
         <div className="time">
           <div className="current-time">{calculateTime(currentTime)}</div>

@@ -33,6 +33,7 @@ function App() {
     email: null,
     img: null,
   });
+  const [queue, setQueue] = useState<SongFullData[]>([]);
   const [dropdown, setDropdown] = useState<boolean>(false);
   const [search, setSearch] = useState<SearchHandler>({
     searchTerm: "",
@@ -153,7 +154,10 @@ function App() {
               }
             />
             <Route path="album" element={<Album />} />
-            <Route path="player" element={<Player />} />
+            <Route
+              path="player"
+              element={<Player setQueue={setQueue} queue={queue} />}
+            />
             <Route path="artist">
               <Route index element={<Artist />} />
               <Route path="songs" element={<SongsList />} />
