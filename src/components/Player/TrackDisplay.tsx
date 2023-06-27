@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./styles/TrackDisplay.css";
 import { capitalize } from "../../utility";
-import test from "../../laser-gun.png";
+import fallbackImg from "../images/fallback.png";
 import { SongFullData } from "../../interfaces";
 import notLikedImg from "./images/thumb-up-outline.svg";
 import likedImg from "./images/thumb-up.svg";
@@ -60,8 +60,7 @@ function TrackDisplay({ track }: { track: SongFullData }) {
       <div
         className="player-track-img"
         style={{
-          backgroundImage: `url("${test}")`,
-          //backgroundImage: `url("${track.imageURL}")`,
+          backgroundImage: `url("${track.imageURL}"), url("${fallbackImg}")`,
         }}
       />
       <div className="player-track-name">{capitalize(track.name)}</div>

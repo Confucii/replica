@@ -1,7 +1,7 @@
 import "./styles/ArtistTrack.css";
 import play from "../images/play.svg";
 import { calculateTime, capitalize } from "../../utility";
-import test from "../../laser-gun.png";
+import fallbackImg from "../images/fallback.png";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { SongDataTransmute } from "../../interfaces";
@@ -62,8 +62,7 @@ function ArtistTrack({
           onClick={handleMainRedirect}
           className="artist-track-image"
           style={{
-            backgroundImage: `url('${test}')`,
-            //backgroundImage: `url('${song.imageURL}')`,
+            backgroundImage: `url("${song.imageURL}"), url("${fallbackImg}")`,
           }}
         >
           <img className="artist-track-play" src={play} alt="play" />

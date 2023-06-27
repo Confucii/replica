@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { SongFullData } from "../../interfaces";
 import { calculateTime, capitalize } from "../../utility";
 import "./styles/QueueTrack.css";
-import test from "../../laser-gun.png";
+import fallbackImg from "../images/fallback.png";
 import play from "../images/play.svg";
 
 function QueueTrack({
@@ -54,8 +54,7 @@ function QueueTrack({
         <div
           className="queue-track-img"
           style={{
-            backgroundImage: `url("${test}")`,
-            //backgroundImage: `url("${track.imageURL}")`,
+            backgroundImage: `url("${track.imageURL}"), url("${fallbackImg}")`,
           }}
         >
           <img className="play-btn" src={play} alt="play" />{" "}

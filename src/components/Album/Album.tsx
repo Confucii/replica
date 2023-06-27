@@ -1,11 +1,11 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import "./styles/Album.css";
-import test from "../../laser-gun.png";
 import { capitalize } from "../../utility";
 import { useEffect, useState } from "react";
 import { getArtistData } from "../../firebase/firebase";
 import AlbumTracks from "./AlbumTracks";
 import { AlbumData, SongData } from "../../interfaces";
+import fallbackImg from "../images/fallback.png";
 
 function Album() {
   const [albumData, setAlbumData] = useState<AlbumData>();
@@ -52,8 +52,7 @@ function Album() {
           <div
             className="album-poster"
             style={{
-              //backgroundImage: `url("${albumData.imageURL}")`,
-              backgroundImage: `url("${test}")`,
+              backgroundImage: `url("${albumData.imageURL}"), url("${fallbackImg}")`,
             }}
           ></div>
           <div className="album-description">

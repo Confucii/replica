@@ -1,6 +1,7 @@
 import { capitalize } from "../../utility";
 import "./styles/CarouselItemCard.css";
-import test from "../../laser-gun.png";
+import fallbackImg from "../images/fallback.png";
+
 import play from "../images/play.svg";
 import { useState, useLayoutEffect, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -74,8 +75,7 @@ function CarouselItemCard({
         onClick={handleRedirectItem}
         // change to imageURL
         style={{
-          backgroundImage: `url("${test}")`,
-          //backgroundImage: `url("${data.imageURL}")`,
+          backgroundImage: `url("${data.imageURL}"), url("${fallbackImg}")`,
           height: `${imageSize}px`,
           width: `${imageSize}px`,
         }}

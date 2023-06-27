@@ -1,6 +1,6 @@
 import { capitalize } from "../../utility";
 import "./styles/MixTrack.css";
-import test from "../../laser-gun.png";
+import fallbackImg from "../images/fallback.png";
 import play from "../images/play.svg";
 import { useNavigate } from "react-router-dom";
 import { SongFullData } from "../../interfaces";
@@ -32,8 +32,7 @@ function MixTrack({ data }: { data: SongFullData }) {
         onClick={handleMainRedirect}
         className="mix-track-img"
         style={{
-          backgroundImage: `url("${test}")`,
-          //backgroundImage: `url("${data.imageURL}")`,
+          backgroundImage: `url("${data.imageURL}"), url("${fallbackImg}")`,
         }}
       >
         <img className="play-btn" src={play} alt="play" />

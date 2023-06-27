@@ -1,7 +1,7 @@
 import { SongFullData } from "../../interfaces";
 import "./styles/LibraryTrack.css";
 import play from "../images/play.svg";
-import test from "../../laser-gun.png";
+import fallbackImg from "../images/fallback.png";
 import { useNavigate } from "react-router-dom";
 import { capitalize } from "../../utility";
 
@@ -33,8 +33,7 @@ function LibraryTrack({ track }: { track: SongFullData }) {
         onClick={handleRedirectItem}
         // change to imageURL
         style={{
-          backgroundImage: `url("${test}")`,
-          //backgroundImage: `url("${track.imageURL}")`
+          backgroundImage: `url("${track.imageURL}"), url("${fallbackImg}")`,
         }}
       >
         <img className="library-play play-btn" src={play} alt="play" />

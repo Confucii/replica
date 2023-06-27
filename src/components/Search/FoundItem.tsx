@@ -2,7 +2,7 @@ import "./styles/FoundItem.css";
 import play from "../images/play.svg";
 import { calculateTime, capitalize } from "../../utility";
 import { useNavigate } from "react-router-dom";
-import test from "../../laser-gun.png";
+import fallbackImg from "../images/fallback.png";
 import { useEffect, useState } from "react";
 import { AlbumDataTransmute, PureData, SongFullData } from "../../interfaces";
 
@@ -66,8 +66,7 @@ function FoundItem({
         className={`found-item-img ${type === "artist" && "artist"}`}
         onClick={handleMainRedirect}
         style={{
-          backgroundImage: `url("${test}")`,
-          //backgroundImage: `url("${data.imageURL}")`,
+          backgroundImage: `url("${data.imageURL}"), url("${fallbackImg}")`,
         }}
       >
         <img className="play-btn" src={play} alt="play" />

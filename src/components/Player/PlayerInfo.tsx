@@ -1,6 +1,6 @@
 import "./styles/PlayerInfo.css";
-import test from "../../laser-gun.png";
 import { SongFullData } from "../../interfaces";
+import fallbackImg from "../images/fallback.png";
 import Queue from "./Queue";
 
 function PlayerInfo({
@@ -41,8 +41,7 @@ function PlayerInfo({
       <div
         className="player-info-image"
         style={{
-          backgroundImage: `url("${test}")`,
-          //backgroundImage: `url("${data.imageURL}")`,
+          backgroundImage: `url("${track.imageURL}"), url("${fallbackImg}")`,
         }}
       />
       <Queue

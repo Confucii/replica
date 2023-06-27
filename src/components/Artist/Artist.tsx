@@ -3,7 +3,7 @@ import "./styles/Artist.css";
 import { capitalize } from "../../utility";
 import { getArtistData } from "../../firebase/firebase";
 import { useEffect, useState } from "react";
-import test from "../../laser-gun.png";
+import fallbackImg from "../images/fallback.png";
 import ArtistSongs from "./ArtistSongs";
 import Carousel from "../Carousel/Carousel";
 import {
@@ -62,8 +62,7 @@ function Artist() {
         <div
           className="artist-header"
           style={{
-            //backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 25%, rgba(0,0,0,1)), url('${artistData.imageURL}')`,
-            backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 25%, rgba(0,0,0,1)), url('${test}')`,
+            backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 25%, rgba(0,0,0,1)), url("${artistData.imageURL}"), url("${fallbackImg}")`,
           }}
         >
           <div className="artist-page-name">{capitalize(artistData.name)}</div>
