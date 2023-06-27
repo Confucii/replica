@@ -14,7 +14,10 @@ function Dropdown() {
   function handleSignOut() {
     nav("/");
     context.dropdownHandler.setDropdown(!context.dropdownHandler.dropdown);
-    signOutUser();
+
+    setTimeout(() => {
+      signOutUser();
+    }, 100);
   }
 
   return (

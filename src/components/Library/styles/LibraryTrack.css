@@ -20,6 +20,19 @@
   transition: filter 0.5s ease-in-out;
 }
 
+.library-play.play-btn {
+  width: 40%;
+}
+
+.library-poster-img:hover {
+  filter: brightness(80%);
+}
+
+.library-poster-img:hover .play-btn {
+  display: block;
+  filter: invert(100%);
+}
+
 .library-track-title {
   font-size: 1.2rem;
   font-weight: bold;
