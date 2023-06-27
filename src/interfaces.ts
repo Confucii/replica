@@ -61,7 +61,7 @@ export interface ContextInterface {
 
 export interface CarouselData {
   artist: string;
-  items: SongFullData[] | AlbumData[] | SongData[];
+  items: Array<SongFullData | AlbumData | SongData>;
 }
 
 export interface ArtistFullSongList {

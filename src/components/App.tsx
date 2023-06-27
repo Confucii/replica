@@ -56,7 +56,7 @@ function App() {
       const fullData = await getData();
       let artists: PureData[] = [];
       let albums: AlbumDataTransmute[] = [];
-      let songs: CarouselData[] = [];
+      let songs: Array<CarouselData> = [];
       fullData.forEach((artist: ArtistData) => {
         let singles = artist.singles.map((single: SongData) => {
           return {
@@ -103,7 +103,7 @@ function App() {
               return item.items;
             })
             .flat()
-        )
+        ) as SongFullData[]
       );
     }
 

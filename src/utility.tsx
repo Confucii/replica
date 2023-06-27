@@ -16,7 +16,7 @@ export function calculateTime(time: number) {
   );
 }
 
-export function shuffleArray(arr: any[]) {
+export function shuffleArray<Type>(arr: Type[]): Type[] {
   const shuffledArray = [...arr];
 
   for (let i = shuffledArray.length - 1; i > 0; i -= 1) {

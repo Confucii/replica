@@ -67,6 +67,16 @@ export async function setUserData(uid: string) {
   }
 }
 
+export async function getUserLikedTracks(uid: string) {
+  const docRef = await getDoc(doc(firestore, "user-likes", uid));
+
+  const data = docRef.data();
+
+  if (data) {
+    return data.likes;
+  }
+}
+
 export async function getUserLikedStatus(uid: string, name: string) {
   const docRef = await getDoc(doc(firestore, "user-likes", uid));
 

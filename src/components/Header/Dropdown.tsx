@@ -4,11 +4,15 @@ import { AppContext } from "../App";
 import { useContext } from "react";
 import signOut from "./images/logout.svg";
 import { ContextInterface } from "../../interfaces";
+import { useNavigate } from "react-router-dom";
 
 function Dropdown() {
   const context = useContext<ContextInterface>(AppContext);
 
+  const nav = useNavigate();
+
   function handleSignOut() {
+    nav("/");
     context.dropdownHandler.setDropdown(!context.dropdownHandler.dropdown);
     signOutUser();
   }

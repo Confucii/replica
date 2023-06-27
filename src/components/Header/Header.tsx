@@ -12,7 +12,7 @@ function Header() {
   const context = useContext<ContextInterface>(AppContext);
 
   function librarySignInHandler() {
-    if (!context.user) {
+    if (!context.user.uid) {
       signIn();
     }
   }

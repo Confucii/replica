@@ -1,0 +1,41 @@
+.LibraryTrack {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 5px;
+  width: fit-content;
+}
+
+.library-poster-img {
+  height: 200px;
+  width: 200px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: filter 0.5s ease-in-out;
+}
+
+.library-track-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.library-track-sources {
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  gap: 10px;
+  width: fit-content;
+}
+
+.library-track-artist:hover,
+.library-track-album:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
