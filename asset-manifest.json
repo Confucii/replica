@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/replica/static/css/main.e1ae684f.css",
-    "main.js": "/replica/static/js/main.79e8459c.js",
+    "main.css": "/replica/static/css/main.17a17267.css",
+    "main.js": "/replica/static/js/main.76c90a1b.js",
     "static/media/fallback.png": "/replica/static/media/fallback.f2f73812251d94a0fa89.png",
     "static/media/home-sound-out.svg": "/replica/static/media/home-sound-out.2acd2c80244d5ed63d586a34ebbac6aa.svg",
     "static/media/volume-off.svg": "/replica/static/media/volume-off.514a6dfafe3a24b71966a3db56909fca.svg",
@@ -19,11 +19,11 @@
     "static/media/skip-next.svg": "/replica/static/media/skip-next.b1f1ac74e3bd6ccdd4c554f08fd159d9.svg",
     "static/media/pause.svg": "/replica/static/media/pause.6fdfa4a59b3d155367d56f1e5dcfd628.svg",
     "static/media/play.svg": "/replica/static/media/play.9ee4a23d852217c79e80f41b7ab72218.svg",
-    "main.e1ae684f.css.map": "/replica/static/css/main.e1ae684f.css.map",
-    "main.79e8459c.js.map": "/replica/static/js/main.79e8459c.js.map"
+    "main.17a17267.css.map": "/replica/static/css/main.17a17267.css.map",
+    "main.76c90a1b.js.map": "/replica/static/js/main.76c90a1b.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1ae684f.css",
-    "static/js/main.79e8459c.js"
+    "static/css/main.17a17267.css",
+    "static/js/main.76c90a1b.js"
   ]
 }
