@@ -1,15 +1,50 @@
 .Library {
-  display: flex;
   background-color: black;
   flex: 1;
+  padding: 2% 5%;
+}
+
+.library-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .library-track-grid {
   width: 100%;
-  padding: 5%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-auto-rows: min-content;
   row-gap: 20px;
   column-gap: 20px;
+}
+
+.library-header {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 2%;
+}
+
+.library-name {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.library-btn {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  height: 32px;
+  padding: 0 20px;
+  align-self: baseline;
+}
+
+.library-btn:hover {
+  background-color: rgba(255, 255, 255, 0.8);
 }
