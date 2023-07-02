@@ -1,4 +1,4 @@
-# replica
+# Replica
 
 Odin project Javascript section final project. The task was to make a copy of a popular website and its functionality. I have made a replica of Youtube Music. This project purpose is to practice all the skills learned in JavaScript section. This project is the largest by far and features most functionality.
 
