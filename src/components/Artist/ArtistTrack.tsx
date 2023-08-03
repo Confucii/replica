@@ -34,8 +34,7 @@ function ArtistTrack({
         });
       };
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [duration, song.audioURL]);
 
   function handleRedirectSource() {
     if (song.album === "single") {

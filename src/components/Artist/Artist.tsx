@@ -47,14 +47,14 @@ function Artist() {
         })
       );
 
-      setArtistSongs({ ...artistSongs, artistSongsList: songList });
+      setArtistSongs((artistSongsVal) => {
+        return { ...artistSongsVal, artistSongsList: songList };
+      });
       setArtistData(artistData);
     }
 
     getArtistDataAsync();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [location.state]);
 
   return (
     <div className="Artist">

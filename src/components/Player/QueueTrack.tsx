@@ -34,8 +34,7 @@ function QueueTrack({
         setDuration(audio.duration);
       });
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [track.audioURL]);
 
   return (
     <div

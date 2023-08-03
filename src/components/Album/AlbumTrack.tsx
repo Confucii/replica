@@ -40,8 +40,7 @@ function AlbumTrack({
         setDuration(audio.duration);
       });
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [song.audioURL]);
 
   return (
     <div className="AlbumTrack">

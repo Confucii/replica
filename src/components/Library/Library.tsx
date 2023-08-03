@@ -27,7 +27,6 @@ function Library() {
       }
     }
     setLikedTracks();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [context]);
 
   return (

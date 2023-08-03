@@ -63,9 +63,7 @@ function Controls({
     }
 
     playAnimationRef.current = requestAnimationFrame(repeat);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [trackRef, duration, sliderRef, setCurrentTime]);
+  }, [trackRef, sliderRef, setCurrentTime]);
 
   useEffect(() => {
     if (isPlaying) {
@@ -78,8 +76,7 @@ function Controls({
     return () => {
       cancelAnimationFrame(playAnimationRef.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [trackRef, isPlaying]);
+  }, [trackRef, isPlaying, repeat]);
 
   useEffect(() => {
     if (trackRef) {

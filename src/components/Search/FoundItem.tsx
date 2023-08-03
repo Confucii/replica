@@ -33,8 +33,7 @@ function FoundItem({
         });
       };
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [data]);
 
   function handleArtistRedirect() {
     if ("artist" in data) nav("/artist", { state: data.artist });

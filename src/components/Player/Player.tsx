@@ -24,8 +24,7 @@ function Player({
     location.state.song
       ? setQueue([location.state.song])
       : setQueue(location.state);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [location.state, setQueue]);
 
   const sliderRef = useRef<HTMLInputElement>({} as HTMLInputElement);
   const trackRef = useRef<HTMLAudioElement>({} as HTMLAudioElement);

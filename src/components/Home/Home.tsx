@@ -23,7 +23,6 @@ function Home({
     } else {
       setFilteredSongs(homeSongs);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter, homeSongs]);
 
   return (

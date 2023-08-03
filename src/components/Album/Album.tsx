@@ -41,9 +41,7 @@ function Album() {
     }
 
     getAlbumData();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [location.state.album, location.state.artist]);
 
   return (
     <div className="Album">

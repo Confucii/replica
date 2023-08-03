@@ -40,8 +40,7 @@ function TrackDisplay({ track }: { track: SongFullData }) {
     }
 
     loadTrackStatus();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [track]);
+  }, [context.user.uid, track]);
 
   function handleArtistRedirect() {
     nav("/artist", { state: track.artist });
